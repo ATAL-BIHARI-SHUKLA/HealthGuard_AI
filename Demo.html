@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HealthGuard AI - Contact</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#136dec",
+              secondary: "#34d399", // Adding a green accent as requested
+              "background-light": "#f8f9fc",
+              "background-dark": "#101822",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1e293b",
+              "text-main": "#0d131b",
+              "text-muted": "#4c6c9a",
+              "border-light": "#e7ecf3",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+              body: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-body antialiased text-text-main"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <!-- Header -->
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light bg-surface-light px-6 py-4 lg:px-10 dark:bg-surface-dark dark:border-gray-800"
+      >
+        <div class="flex items-center gap-4 text-text-main dark:text-white">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary"
+          >
+            <span class="material-symbols-outlined text-2xl"
+              >health_and_safety</span
+            >
+          </div>
+          <h2
+            class="text-text-main text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white"
+          >
+            HealthGuard AI
+          </h2>
+        </div>
+        <div class="hidden md:flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <a
+              class="text-text-main hover:text-primary transition-colors text-sm font-medium leading-normal dark:text-gray-300 dark:hover:text-white"
+              href="#"
+              >Platform</a
+            >
+            <a
+              class="text-text-main hover:text-primary transition-colors text-sm font-medium leading-normal dark:text-gray-300 dark:hover:text-white"
+              href="#"
+              >Solutions</a
+            >
+            <a
+              class="text-text-main hover:text-primary transition-colors text-sm font-medium leading-normal dark:text-gray-300 dark:hover:text-white"
+              href="#"
+              >Resources</a
+            >
+            <a
+              class="text-text-main hover:text-primary transition-colors text-sm font-medium leading-normal dark:text-gray-300 dark:hover:text-white"
+              href="#"
+              >Pricing</a
+            >
+          </div>
+          <button
+            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors shadow-sm hover:shadow-md"
+          >
+            <span class="truncate">Request Demo</span>
+          </button>
+        </div>
+        <div class="flex md:hidden">
+          <button class="text-text-main dark:text-white">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </header>
+      <!-- Main Content -->
+      <main
+        class="layout-container flex grow flex-col justify-center items-center py-10 lg:py-20 px-4 sm:px-6"
+      >
+        <div
+          class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          <!-- Left Column: Text & Context -->
+          <div class="flex flex-col gap-6 lg:pr-10">
+            <div
+              class="inline-flex items-center gap-2 self-start rounded-full bg-secondary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-secondary dark:text-emerald-400"
+            >
+              <span class="h-2 w-2 rounded-full bg-secondary"></span>
+              Contact Sales
+            </div>
+            <h1
+              class="text-text-main dark:text-white text-4xl sm:text-5xl font-black leading-[1.1] tracking-tight"
+            >
+              Let’s Build the <span class="text-primary">Future</span> of
+              Healthcare Together
+            </h1>
+            <p
+              class="text-text-muted dark:text-gray-400 text-lg font-normal leading-relaxed max-w-md"
+            >
+              Our team is ready to show you how HealthGuard AI can streamline
+              diagnostics and patient care. Fill out the form to get started.
+            </p>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex items-start gap-3">
+                <div
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >verified_user</span
+                  >
+                </div>
+                <div>
+                  <h3 class="font-bold text-text-main dark:text-white">
+                    HIPAA Compliant
+                  </h3>
+                  <p class="text-sm text-text-muted dark:text-gray-400">
+                    Your data security is our top priority.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary dark:text-emerald-400"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >support_agent</span
+                  >
+                </div>
+                <div>
+                  <h3 class="font-bold text-text-main dark:text-white">
+                    24/7 Expert Support
+                  </h3>
+                  <p class="text-sm text-text-muted dark:text-gray-400">
+                    We are here whenever you need us.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple-600"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >rocket_launch</span
+                  >
+                </div>
+                <div>
+                  <h3 class="font-bold text-text-main dark:text-white">
+                    Fast Integration
+                  </h3>
+                  <p class="text-sm text-text-muted dark:text-gray-400">
+                    Seamlessly connects with your EHR.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Image -->
+            <div
+              class="mt-10 h-64 w-full rounded-2xl bg-gradient-to-tr from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 overflow-hidden relative shadow-inner hidden lg:block"
+            >
+              <img
+                alt="Doctor using digital tablet for medical research"
+                class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply dark:mix-blend-normal dark:opacity-60"
+                data-alt="Doctor holding a tablet with data visualization on screen"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1IIaO7CwdxaEcvzPEzYEVXqCQzs0tMzyG1DBMJcn-txHDkkijwj8hO-YEneVv9OhEb6nrx9Cv3Yw4u_AajlAqJIB5U-8suBssOK-vk3JpdNdCOC6o4MdaHpavZPMNDVneEbzYMJq5VN18M9Ho0_D3poG0ObhdnwHA3XsZ3pbhFVdlUS194FNtWXGxy4qOKefIJ7mpDbSYG6j5D-ID7cPIgE2yUF22lvmhpP6gerojtS-wXuKCvsXfX0YEezjq53wEsqCRppYzwq4"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent dark:from-black/60"
+              ></div>
+            </div>
+          </div>
+          <!-- Right Column: Form Card -->
+          <div
+            class="w-full bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-black/20 border border-border-light dark:border-gray-700"
+          >
+            <form class="flex flex-col gap-5">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <label class="flex flex-col gap-1.5">
+                  <span
+                    class="text-text-main dark:text-gray-200 text-sm font-semibold"
+                    >Full Name</span
+                  >
+                  <input
+                    class="form-input w-full rounded-lg border border-gray-200 bg-background-light px-4 py-3 text-text-main placeholder-text-muted focus:border-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                    placeholder="Dr. Jane Doe"
+                    type="text"
+                  />
+                </label>
+                <label class="flex flex-col gap-1.5">
+                  <span
+                    class="text-text-main dark:text-gray-200 text-sm font-semibold"
+                    >Work Email</span
+                  >
+                  <input
+                    class="form-input w-full rounded-lg border border-gray-200 bg-background-light px-4 py-3 text-text-main placeholder-text-muted focus:border-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                    placeholder="jane@hospital.com"
+                    type="email"
+                  />
+                </label>
+              </div>
+              <label class="flex flex-col gap-1.5">
+                <span
+                  class="text-text-main dark:text-gray-200 text-sm font-semibold"
+                  >I am a...</span
+                >
+                <div class="relative">
+                  <select
+                    class="form-select w-full appearance-none rounded-lg border border-gray-200 bg-background-light px-4 py-3 pr-10 text-text-main focus:border-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                  >
+                    <option disabled="" selected="" value="">
+                      Select your role
+                    </option>
+                    <option value="doctor">Doctor / Physician</option>
+                    <option value="researcher">Medical Researcher</option>
+                    <option value="student">Medical Student</option>
+                    <option value="govt">Government Official</option>
+                    <option value="admin">Hospital Administrator</option>
+                  </select>
+                </div>
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span
+                  class="text-text-main dark:text-gray-200 text-sm font-semibold"
+                  >Message</span
+                >
+                <textarea
+                  class="form-textarea w-full resize-none rounded-lg border border-gray-200 bg-background-light px-4 py-3 text-text-main placeholder-text-muted focus:border-primary focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white min-h-[120px]"
+                  placeholder="Tell us about your organization's needs..."
+                ></textarea>
+              </label>
+              <div class="flex items-center gap-3 py-2">
+                <input
+                  class="rounded border-gray-300 text-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-700"
+                  id="newsletter"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm text-text-muted dark:text-gray-400"
+                  for="newsletter"
+                >
+                  I agree to receive communications from HealthGuard AI.
+                </label>
+              </div>
+              <button
+                class="mt-2 flex w-full cursor-pointer items-center justify-center rounded-xl bg-primary py-4 text-base font-bold text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-600 hover:shadow-blue-500/30 active:scale-[0.98]"
+                type="button"
+              >
+                Request Demo
+              </button>
+              <p
+                class="text-center text-xs text-text-muted dark:text-gray-500 mt-2"
+              >
+                By clicking "Request Demo", you agree to our Terms of Service
+                and Privacy Policy.
+              </p>
+            </form>
+          </div>
+        </div>
+      </main>
+      <!-- Footer Simple -->
+      <footer
+        class="border-t border-border-light bg-surface-light py-8 dark:bg-surface-dark dark:border-gray-800"
+      >
+        <div
+          class="container mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p class="text-sm text-text-muted dark:text-gray-500">
+            © 2026 HealthGuard AI. All rights reserved.
+          </p>
+          <div class="flex gap-6">
+            <a
+              class="text-sm text-text-muted hover:text-primary transition-colors dark:text-gray-500 dark:hover:text-white"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-sm text-text-muted hover:text-primary transition-colors dark:text-gray-500 dark:hover:text-white"
+              href="#"
+              >Terms of Service</a
+            >
+            <a
+              class="text-sm text-text-muted hover:text-primary transition-colors dark:text-gray-500 dark:hover:text-white"
+              href="#"
+              >Support</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Privacy &amp; Safety - HealthGuard AI</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#136dec",
+              "accent-green": "#10b981",
+              "background-light": "#ffffff",
+              "background-dark": "#101822",
+              "surface-light": "#f8fafc",
+              "surface-dark": "#1e293b",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+              sans: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .icon-filled {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-[#0d131b] dark:text-white font-display overflow-x-hidden"
+  >
+    <!-- TopNavBar -->
+    <div
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-4 sm:px-10 h-16 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-4 text-slate-900 dark:text-white">
+          <div class="size-8 text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-3xl icon-filled"
+              >local_hospital</span
+            >
+          </div>
+          <h2 class="text-xl font-bold tracking-tight">HealthGuard AI</h2>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >Solutions</a
+          >
+          <a
+            class="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >Platform</a
+          >
+          <a class="text-sm font-medium text-primary" href="#">Privacy</a>
+          <a
+            class="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >About Us</a
+          >
+        </nav>
+        <div class="flex gap-3">
+          <button
+            class="hidden sm:flex h-9 px-4 items-center justify-center rounded-lg bg-surface-light dark:bg-slate-800 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          >
+            Log In
+          </button>
+          <button
+            class="flex h-9 px-4 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="relative w-full py-16 lg:py-24 px-4 sm:px-10">
+      <div
+        class="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Text Content -->
+        <div class="flex flex-col gap-6 max-w-2xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold w-fit"
+          >
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            HIPAA &amp; GDPR Compliant
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-slate-900 dark:text-white"
+          >
+            Your Data. <br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-green"
+              >Your Control.</span
+            >
+          </h1>
+          <p
+            class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg"
+          >
+            HealthGuard AI is built on a foundation of privacy. We protect your
+            health information with military-grade security so you can focus on
+            care, knowing your data never leaves your control without explicit
+            consent.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <button
+              class="flex h-12 px-6 items-center justify-center rounded-xl bg-primary text-white text-base font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/25"
+            >
+              <span class="material-symbols-outlined mr-2 text-xl">shield</span>
+              View Security Specs
+            </button>
+            <button
+              class="flex h-12 px-6 items-center justify-center rounded-xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-base font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
+            >
+              How it works
+            </button>
+          </div>
+        </div>
+        <!-- Hero Image -->
+        <div
+          class="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-slate-100 dark:bg-slate-800"
+        >
+          <!-- Decorative background elements -->
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent-green/10"
+          ></div>
+          <div
+            class="absolute w-full h-full flex items-center justify-center"
+            data-alt="Abstract 3D illustration of a digital shield protecting floating medical data blocks"
+            style="
+              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAdXSU0BNwiUmysIX7nWO0wWs5qSN45-ScaoPVXu89yJczRLxGn2N-Yxq6xDX0j0HusXAfwrLcsrd_UsDjZBqzlYo63d9OOI8KoJLYi4AYtq7tPj71grMtwz6lvBVI4tGwmbRFdAEVgDVGk_7aUQDfL5cVkFvZsJ1iR4PJsBIv5bgmEw4ivFG75V9nf62xB2wUSQnHtVhJwehCRtKzV0svgPiJ5RuqsxwU6DONQS1CjMBtYNHRqk2vykSb6sFBLcN8965eEGd7TqQ');
+              background-size: cover;
+              background-position: center;
+            "
+          >
+            <div
+              class="absolute inset-0 bg-primary/40 mix-blend-multiply"
+            ></div>
+          </div>
+          <!-- Floating Trust Badge -->
+          <div
+            class="absolute bottom-8 left-8 right-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-4"
+          >
+            <div
+              class="size-10 rounded-full bg-accent-green/20 flex items-center justify-center text-accent-green"
+            >
+              <span class="material-symbols-outlined">lock</span>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">
+                AES-256 Encryption Active
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Your session is secure and private.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Logo Strip -->
+    <section
+      class="w-full border-y border-slate-100 dark:border-slate-800 bg-surface-light dark:bg-background-dark py-10"
+    >
+      <div class="max-w-[1200px] mx-auto px-4 text-center">
+        <p
+          class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6"
+        >
+          Trusted by leading healthcare institutions &amp; compliant with
+        </p>
+        <div
+          class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+        >
+          <!-- Text Placeholders for Logos -->
+          <div
+            class="flex items-center gap-2 text-xl font-bold text-slate-700 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined text-3xl">verified</span>
+            HIPAA
+          </div>
+          <div
+            class="flex items-center gap-2 text-xl font-bold text-slate-700 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined text-3xl">shield_moon</span>
+            GDPR
+          </div>
+          <div
+            class="flex items-center gap-2 text-xl font-bold text-slate-700 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined text-3xl">gavel</span> SOC2
+          </div>
+          <div
+            class="flex items-center gap-2 text-xl font-bold text-slate-700 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined text-3xl"
+              >medical_services</span
+            >
+            ISO 27001
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Key Principles Section -->
+    <section class="py-20 px-4 sm:px-10 bg-white dark:bg-background-dark">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+          >
+            Key Privacy Principles
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-slate-400">
+            Our platform is designed with a privacy-first architecture, ensuring
+            your information remains secure, compliant, and under your control
+            at all times.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Encryption -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl"
+                >enhanced_encryption</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              End-to-End Encryption
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              Data is encrypted in transit and at rest using industry-leading
+              AES-256 protocols. Even we can't see your raw health data.
+            </p>
+          </div>
+          <!-- Card 2: User Consent -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-accent-green/10 text-accent-green flex items-center justify-center mb-4 group-hover:bg-accent-green group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl">checklist</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              User Consent Required
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              We operate on a strict permission basis. We never share your
+              personal data with third parties without your explicit, revocable
+              permission.
+            </p>
+          </div>
+          <!-- Card 3: Anonymized Data -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl">person_off</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              Anonymized Outbreak Data
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              AI analysis uses only aggregated, completely non-identifiable data
+              to generate health insights for community safety.
+            </p>
+          </div>
+          <!-- Card 4: QR Access -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl"
+                >qr_code_scanner</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              Read-Only QR Access
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              Sharing records with doctors is temporary, controlled by you, and
+              accessed via one-time read-only QR codes.
+            </p>
+          </div>
+          <!-- Card 5: AI Disclaimer -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-blue-400/10 text-blue-500 flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl">smart_toy</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              AI Disclaimer &amp; Transparency
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              We provide clear markers indicating when AI is assisting in your
+              care journey, ensuring you always know who (or what) is helping.
+            </p>
+          </div>
+          <!-- Card 6: Audit Logs -->
+          <div
+            class="group p-6 rounded-2xl bg-surface-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="size-12 rounded-xl bg-slate-500/10 text-slate-600 flex items-center justify-center mb-4 group-hover:bg-slate-600 group-hover:text-white transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl">history</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              Complete Audit Trails
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed"
+            >
+              Every access to your data is logged. You can review a complete
+              history of who accessed your information and when.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section
+      class="py-20 px-4 bg-surface-light dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+    >
+      <div
+        class="max-w-[960px] mx-auto flex flex-col items-center text-center gap-8"
+      >
+        <div class="rounded-full bg-primary/10 p-4 mb-2">
+          <span class="material-symbols-outlined text-4xl text-primary"
+            >policy</span
+          >
+        </div>
+        <h2
+          class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white max-w-2xl"
+        >
+          Committed to Radical Transparency
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl">
+          We believe you have the right to know exactly how your data is used.
+          Dive deeper into our data practices and read our full transparency
+          report.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 w-full sm:w-auto">
+          <button
+            class="flex h-12 min-w-[180px] px-6 items-center justify-center rounded-xl bg-primary text-white text-base font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25"
+          >
+            Read Full Policy
+          </button>
+          <button
+            class="flex h-12 min-w-[180px] px-6 items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-base font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
+          >
+            Download Whitepaper
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Simple Footer -->
+    <footer
+      class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-10 px-4 sm:px-10"
+    >
+      <div
+        class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+          <div class="size-6 text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl"
+              >local_hospital</span
+            >
+          </div>
+          <span class="text-lg font-bold">HealthGuard AI</span>
+        </div>
+        <div class="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
+          <a class="hover:text-primary" href="#">Privacy Policy</a>
+          <a class="hover:text-primary" href="#">Terms of Service</a>
+          <a class="hover:text-primary" href="#">Cookie Settings</a>
+        </div>
+        <div class="text-sm text-slate-400 dark:text-slate-500">
+          © 2026 HealthGuard AI. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

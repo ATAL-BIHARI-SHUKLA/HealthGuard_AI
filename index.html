@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>HealthGuard AI Landing Page</title>
+    <title>HealthGuard AI Home Page</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,7 +23,8 @@
             colors: {
               primary: "#136dec",
               "primary-dark": "#0e56be",
-              "background-light": "#f6f7f8",
+              "background-light": "#ffffff",
+              "background-off": "#f8fafc",
               "background-dark": "#101822",
               "accent-green": "#10b981",
               "accent-red": "#ef4444",
@@ -44,6 +40,10 @@
               xl: "1.5rem",
               full: "9999px",
             },
+            boxShadow: {
+              soft: "0 4px 20px -2px rgba(19, 109, 236, 0.08)",
+              "soft-lg": "0 10px 40px -5px rgba(19, 109, 236, 0.08)",
+            },
           },
         },
       };
@@ -52,48 +52,50 @@
   <body
     class="bg-background-light dark:bg-background-dark text-[#0d131b] dark:text-slate-50 font-display overflow-x-hidden"
   >
-    <!-- TopNavBar -->
     <div
-      class="relative w-full bg-slate-50 dark:bg-background-dark border-b border-[#e7ecf3] dark:border-slate-800"
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
     >
-      <div class="layout-container flex h-full grow flex-col">
-        <div class="px-4 md:px-10 flex flex-1 justify-center py-3">
-          <div
-            class="layout-content-container flex w-full max-w-[1280px] items-center justify-between"
-          >
-            <div class="flex items-center gap-4 text-[#0d131b] dark:text-white">
-              <div class="size-8 flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined !text-[32px]"
-                  >health_and_safety</span
+      <div class="px-4 md:px-10 flex justify-center py-4">
+        <div class="flex w-full max-w-[1280px] items-center justify-between">
+          <a href="/index.html"
+            ><div
+              class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+            >
+              <div
+                class="size-9 flex items-center justify-center bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors"
+              >
+                <span class="material-symbols-outlined !text-[28px]"
+                  >local_hospital</span
                 >
               </div>
               <h2 class="text-xl font-bold leading-tight tracking-tight">
                 HealthGuard AI
               </h2>
-            </div>
-            <div class="hidden md:flex items-center gap-8">
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors dark:text-slate-300"
-                href="#features"
-                >Features</a
-              >
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors dark:text-slate-300"
-                href="#how-it-works"
-                >How it Works</a
-              >
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors dark:text-slate-300"
-                href="#security"
-                >Security</a
-              >
-            </div>
+            </div></a
+          >
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
+              href="#features"
+              >Features</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
+              href="/How work.html"
+              >How it Works</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
+              href="#security"
+              >Security</a
+            >
+          </div>
+          <div class="flex items-center gap-4">
             <button
-              class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold shadow-sm"
+              class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold shadow-soft"
             >
               <span>Get Early Access</span>
             </button>
-            <!-- Mobile Menu Icon -->
             <button class="md:hidden text-[#0d131b] dark:text-white">
               <span class="material-symbols-outlined">menu</span>
             </button>
@@ -101,143 +103,175 @@
         </div>
       </div>
     </div>
-    <!-- HeroSection -->
     <div
-      class="relative flex w-full flex-col bg-slate-50 dark:bg-background-dark"
+      class="relative flex w-full flex-col bg-background-off dark:bg-background-dark overflow-hidden"
     >
       <div
-        class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-12 lg:py-20"
+        class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
       >
         <div
-          class="layout-content-container flex flex-col max-w-[1280px] flex-1"
-        >
-          <div class="@container">
-            <div class="flex flex-col gap-12 lg:flex-row items-center">
-              <!-- Left Content -->
-              <div class="flex flex-col gap-6 flex-1 lg:max-w-[50%]">
-                <div class="flex flex-col gap-4 text-left">
-                  <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 w-fit"
+          class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-100/50 dark:bg-blue-900/10 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-green-50/50 dark:bg-green-900/10 rounded-full blur-3xl"
+        ></div>
+      </div>
+      <div
+        class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-16 lg:py-24 relative z-10"
+      >
+        <div class="flex flex-col max-w-[1280px] flex-1">
+          <div class="flex flex-col gap-12 lg:flex-row items-center">
+            <div class="flex flex-col gap-8 flex-1 lg:max-w-[50%]">
+              <div class="flex flex-col gap-6 text-left">
+                <div
+                  class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-100 shadow-sm dark:bg-slate-800 dark:border-slate-700 w-fit"
+                >
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >verified_user</span
                   >
-                    <span class="material-symbols-outlined text-primary text-sm"
-                      >auto_awesome</span
-                    >
-                    <span
-                      class="text-primary text-xs font-bold uppercase tracking-wide"
-                      >AI-Powered Health</span
-                    >
-                  </div>
-                  <h1
-                    class="text-[#0d131b] dark:text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight"
+                  <span
+                    class="text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wide"
+                    >Government Compliant &amp; Secured</span
                   >
-                    Your Health Data,
-                    <span class="text-primary">Simplified &amp; Secured</span>
-                    with AI
-                  </h1>
-                  <h2
-                    class="text-slate-600 dark:text-slate-300 text-lg font-normal leading-relaxed"
-                  >
-                    Store, understand, analyze, and securely share medical
-                    reports while enabling early outbreak detection using
-                    advanced artificial intelligence.
-                  </h2>
                 </div>
-                <div class="flex flex-wrap gap-4 mt-2">
-                  <button
-                    class="flex items-center justify-center rounded-xl h-12 px-8 bg-primary hover:bg-primary-dark text-white text-base font-bold shadow-lg shadow-blue-500/20 transition-all transform hover:scale-105"
+                <h1
+                  class="text-[#0d131b] dark:text-white text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight"
+                >
+                  Your Health Data,
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-green"
+                    >Simplified &amp; Secured</span
                   >
-                    Get Early Access
-                  </button>
+                  with AI
+                </h1>
+                <h2
+                  class="text-slate-600 dark:text-slate-300 text-lg lg:text-xl font-normal leading-relaxed"
+                >
+                  Store, understand, analyze, and securely share medical reports
+                  while enabling early outbreak detection using advanced
+                  artificial intelligence.
+                </h2>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <button
+                  class="flex items-center justify-center rounded-xl h-14 px-8 bg-primary hover:bg-primary-dark text-white text-base font-bold shadow-soft-lg transition-all transform hover:-translate-y-1"
+                >
+                  Get Early Access
+                </button>
+                <a href="/How work.html">
                   <button
-                    class="flex items-center justify-center rounded-xl h-12 px-8 bg-white border border-slate-200 hover:bg-slate-50 text-[#0d131b] text-base font-bold transition-all"
+                    class="flex items-center justify-center rounded-xl h-14 px-8 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-base font-bold transition-all shadow-sm"
                   >
                     See How It Works
-                  </button>
-                </div>
-                <div
-                  class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400"
+                  </button></a
                 >
-                  <div class="flex -space-x-2">
-                    <div
-                      class="size-8 rounded-full bg-slate-200 border-2 border-white dark:border-slate-800"
-                    ></div>
-                    <div
-                      class="size-8 rounded-full bg-slate-300 border-2 border-white dark:border-slate-800"
-                    ></div>
-                    <div
-                      class="size-8 rounded-full bg-slate-400 border-2 border-white dark:border-slate-800"
-                    ></div>
-                  </div>
-                  <p>Join 2,000+ early users</p>
+              </div>
+              <div
+                class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mt-2"
+              >
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-accent-green"
+                    >check_circle</span
+                  >
+                  <span>HIPAA Compliant</span>
+                </div>
+                <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-accent-green"
+                    >check_circle</span
+                  >
+                  <span>AES-256 Encryption</span>
                 </div>
               </div>
-              <!-- Right Visual -->
+            </div>
+            <div
+              class="w-full lg:w-1/2 flex justify-center lg:justify-end relative perspective-1000"
+            >
               <div
-                class="w-full lg:w-1/2 flex justify-center lg:justify-end relative"
+                class="relative w-full aspect-[4/3] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl shadow-blue-900/10 overflow-hidden border border-slate-200 dark:border-slate-700 p-3 transform transition-transform hover:scale-[1.01] duration-500"
               >
-                <!-- Background Decoration -->
                 <div
-                  class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-green-100 dark:from-blue-900/20 dark:to-green-900/20 blur-3xl rounded-full opacity-60"
-                ></div>
-                <!-- Main Dashboard Image Card -->
-                <div
-                  class="relative w-full aspect-[4/3] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 p-2"
+                  class="w-full h-full rounded-xl bg-slate-50 dark:bg-slate-900 overflow-hidden relative flex flex-col"
                 >
                   <div
-                    class="w-full h-full rounded-xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative group"
-                    data-alt="Futuristic health dashboard interface displaying simplified medical data and map-based alerts"
-                    style="
-                      background-image: linear-gradient(
-                        135deg,
-                        #f0f4f8 0%,
-                        #d9e2ec 100%
-                      );
-                    "
+                    class="h-12 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 flex items-center px-4 justify-between"
                   >
-                    <!-- Abstract UI representation inside the card -->
-                    <div
-                      class="absolute top-4 left-4 right-4 h-8 bg-white dark:bg-slate-800 rounded-lg shadow-sm flex items-center px-3 gap-2"
-                    >
+                    <div class="flex gap-2">
                       <div class="size-3 rounded-full bg-red-400"></div>
-                      <div class="size-3 rounded-full bg-yellow-400"></div>
+                      <div class="size-3 rounded-full bg-amber-400"></div>
                       <div class="size-3 rounded-full bg-green-400"></div>
                     </div>
                     <div
-                      class="absolute top-16 left-4 right-4 bottom-4 flex gap-4"
+                      class="h-2 w-20 bg-slate-100 dark:bg-slate-700 rounded-full"
+                    ></div>
+                  </div>
+                  <div class="p-4 flex gap-4 h-full">
+                    <div
+                      class="w-16 hidden sm:flex flex-col gap-3 items-center pt-2 border-r border-slate-200 dark:border-slate-800 pr-4"
                     >
+                      <div class="size-8 rounded-lg bg-primary/20"></div>
                       <div
-                        class="w-1/3 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-4 flex flex-col gap-2"
-                      >
+                        class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800"
+                      ></div>
+                      <div
+                        class="size-8 rounded-lg bg-slate-100 dark:bg-slate-800"
+                      ></div>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-4">
+                      <div class="grid grid-cols-2 gap-3">
                         <div
-                          class="h-2 w-1/2 bg-slate-200 dark:bg-slate-700 rounded"
-                        ></div>
+                          class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700"
+                        >
+                          <div
+                            class="h-2 w-12 bg-slate-200 dark:bg-slate-700 rounded mb-2"
+                          ></div>
+                          <div
+                            class="h-6 w-16 bg-blue-100 dark:bg-blue-900/30 rounded"
+                          ></div>
+                        </div>
                         <div
-                          class="h-20 w-full bg-blue-50 dark:bg-blue-900/20 rounded-lg mt-2"
-                        ></div>
-                        <div
-                          class="h-2 w-3/4 bg-slate-200 dark:bg-slate-700 rounded mt-2"
-                        ></div>
+                          class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700"
+                        >
+                          <div
+                            class="h-2 w-12 bg-slate-200 dark:bg-slate-700 rounded mb-2"
+                          ></div>
+                          <div
+                            class="h-6 w-16 bg-green-100 dark:bg-green-900/30 rounded"
+                          ></div>
+                        </div>
                       </div>
                       <div
-                        class="w-2/3 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-4 relative overflow-hidden"
+                        class="flex-1 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 relative overflow-hidden"
                       >
-                        <!-- Map representation -->
                         <div
-                          class="absolute inset-0 opacity-20"
+                          class="absolute inset-0 opacity-10"
                           style="
                             background-image: radial-gradient(
-                              #cbd5e1 1px,
+                              #64748b 1px,
                               transparent 1px
                             );
-                            background-size: 10px 10px;
+                            background-size: 16px 16px;
                           "
                         ></div>
                         <div
-                          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-24 bg-red-500/10 rounded-full flex items-center justify-center animate-pulse"
+                          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                         >
+                          <div class="relative">
+                            <div
+                              class="size-4 bg-red-500 rounded-full shadow-lg z-10 relative"
+                            ></div>
+                            <div
+                              class="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75"
+                            ></div>
+                            <div
+                              class="absolute -inset-4 bg-red-500/20 rounded-full animate-pulse"
+                            ></div>
+                          </div>
                           <div
-                            class="size-4 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)]"
-                          ></div>
+                            class="mt-4 bg-white dark:bg-slate-800 px-3 py-1 rounded-full shadow-lg border border-red-100 text-[10px] font-bold text-red-500 whitespace-nowrap"
+                          >
+                            Flu Outbreak Detected
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -249,34 +283,37 @@
         </div>
       </div>
     </div>
-    <!-- Problem Section -->
-    <div class="w-full bg-white dark:bg-slate-900 py-16">
+    <div class="w-full bg-white dark:bg-slate-900 py-20">
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div class="max-w-[1280px] w-full flex flex-col">
-          <div class="text-center mb-12">
+          <div class="text-center mb-16 max-w-2xl mx-auto">
             <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block"
+              class="text-primary font-bold text-sm tracking-widest uppercase mb-3 block"
               >The Challenge</span
             >
             <h2
-              class="text-[#0d131b] dark:text-white text-3xl font-bold leading-tight tracking-tight"
+              class="text-[#0d131b] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-tight"
             >
               The Problem with Traditional Records
             </h2>
+            <p class="mt-4 text-slate-600 dark:text-slate-400">
+              Healthcare data is fragmented, confusing, and difficult to manage.
+            </p>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Card 1 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div
-              class="flex flex-col gap-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 hover:shadow-lg transition-shadow"
+              class="group flex flex-col gap-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-off dark:bg-slate-800/50 p-8 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div
-                class="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary"
+                class="size-14 rounded-xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-colors"
               >
-                <span class="material-symbols-outlined">description</span>
+                <span class="material-symbols-outlined text-3xl"
+                  >description</span
+                >
               </div>
               <div>
                 <h3
-                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-2"
+                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-3"
                 >
                   Scattered Reports
                 </h3>
@@ -288,18 +325,19 @@
                 </p>
               </div>
             </div>
-            <!-- Card 2 -->
             <div
-              class="flex flex-col gap-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 hover:shadow-lg transition-shadow"
+              class="group flex flex-col gap-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-off dark:bg-slate-800/50 p-8 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div
-                class="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary"
+                class="size-14 rounded-xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-colors"
               >
-                <span class="material-symbols-outlined">translate</span>
+                <span class="material-symbols-outlined text-3xl"
+                  >translate</span
+                >
               </div>
               <div>
                 <h3
-                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-2"
+                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-3"
                 >
                   Complex Jargon
                 </h3>
@@ -311,18 +349,19 @@
                 </p>
               </div>
             </div>
-            <!-- Card 3 -->
             <div
-              class="flex flex-col gap-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 hover:shadow-lg transition-shadow"
+              class="group flex flex-col gap-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-off dark:bg-slate-800/50 p-8 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div
-                class="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary"
+                class="size-14 rounded-xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-colors"
               >
-                <span class="material-symbols-outlined">notifications_off</span>
+                <span class="material-symbols-outlined text-3xl"
+                  >notifications_off</span
+                >
               </div>
               <div>
                 <h3
-                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-2"
+                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-3"
                 >
                   No Real-time Alerts
                 </h3>
@@ -334,18 +373,19 @@
                 </p>
               </div>
             </div>
-            <!-- Card 4 -->
             <div
-              class="flex flex-col gap-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 hover:shadow-lg transition-shadow"
+              class="group flex flex-col gap-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-off dark:bg-slate-800/50 p-8 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div
-                class="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary"
+                class="size-14 rounded-xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-colors"
               >
-                <span class="material-symbols-outlined">lock_open</span>
+                <span class="material-symbols-outlined text-3xl"
+                  >lock_open</span
+                >
               </div>
               <div>
                 <h3
-                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-2"
+                  class="text-[#0d131b] dark:text-white text-lg font-bold mb-3"
                 >
                   Lack of Control
                 </h3>
@@ -361,135 +401,145 @@
         </div>
       </div>
     </div>
-    <!-- Core Solutions Section -->
-    <div class="w-full bg-slate-50 dark:bg-background-dark py-20" id="features">
+    <div
+      class="w-full bg-background-off dark:bg-background-dark py-24"
+      id="features"
+    >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div class="max-w-[1280px] w-full flex flex-col">
-          <div class="mb-12">
+          <div class="mb-16">
             <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block"
+              class="text-primary font-bold text-sm tracking-widest uppercase mb-3 block"
               >Core Solutions</span
             >
             <h2
-              class="text-[#0d131b] dark:text-white text-3xl font-bold leading-tight tracking-tight max-w-2xl"
+              class="text-[#0d131b] dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-tight max-w-2xl"
             >
               Everything you need to manage your health in one secure place
             </h2>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Feature 1: Vault -->
             <div
-              class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-700"
+              class="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 p-10 shadow-sm hover:shadow-soft-lg transition-all border border-slate-100 dark:border-slate-700"
             >
               <div
-                class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500"
               >
-                <span class="material-symbols-outlined text-9xl text-primary"
+                <span
+                  class="material-symbols-outlined text-[150px] text-primary"
                   >lock</span
                 >
               </div>
               <div class="relative z-10">
                 <div
-                  class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6"
+                  class="size-16 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-8"
                 >
-                  <span class="material-symbols-outlined text-3xl"
+                  <span class="material-symbols-outlined text-4xl"
                     >shield_lock</span
                   >
                 </div>
                 <h3
-                  class="text-xl font-bold text-[#0d131b] dark:text-white mb-3"
+                  class="text-2xl font-bold text-[#0d131b] dark:text-white mb-4"
                 >
                   Secure Health Vault
                 </h3>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p
+                  class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg"
+                >
                   AES-256 encrypted storage for all your medical records.
                   Organize by date, doctor, or condition with easy search.
                 </p>
               </div>
             </div>
-            <!-- Feature 2: Simplifier -->
             <div
-              class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-700"
+              class="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 p-10 shadow-sm hover:shadow-soft-lg transition-all border border-slate-100 dark:border-slate-700"
             >
               <div
-                class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500"
               >
-                <span class="material-symbols-outlined text-9xl text-primary"
+                <span
+                  class="material-symbols-outlined text-[150px] text-accent-green"
                   >auto_awesome</span
                 >
               </div>
               <div class="relative z-10">
                 <div
-                  class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6"
+                  class="size-16 rounded-2xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-accent-green mb-8"
                 >
-                  <span class="material-symbols-outlined text-3xl"
+                  <span class="material-symbols-outlined text-4xl"
                     >psychology</span
                   >
                 </div>
                 <h3
-                  class="text-xl font-bold text-[#0d131b] dark:text-white mb-3"
+                  class="text-2xl font-bold text-[#0d131b] dark:text-white mb-4"
                 >
                   AI Report Simplifier
                 </h3>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p
+                  class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg"
+                >
                   Upload a PDF or photo of your lab results. Our AI instantly
                   translates complex medical terms into plain English summaries.
                 </p>
               </div>
             </div>
-            <!-- Feature 3: Analyzer -->
             <div
-              class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-700"
+              class="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 p-10 shadow-sm hover:shadow-soft-lg transition-all border border-slate-100 dark:border-slate-700"
             >
               <div
-                class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500"
               >
-                <span class="material-symbols-outlined text-9xl text-primary"
+                <span
+                  class="material-symbols-outlined text-[150px] text-accent-orange"
                   >analytics</span
                 >
               </div>
               <div class="relative z-10">
                 <div
-                  class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6"
+                  class="size-16 rounded-2xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-accent-orange mb-8"
                 >
-                  <span class="material-symbols-outlined text-3xl"
+                  <span class="material-symbols-outlined text-4xl"
                     >monitor_heart</span
                   >
                 </div>
                 <h3
-                  class="text-xl font-bold text-[#0d131b] dark:text-white mb-3"
+                  class="text-2xl font-bold text-[#0d131b] dark:text-white mb-4"
                 >
                   Health Analyzer
                 </h3>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p
+                  class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg"
+                >
                   Track vital trends over time. Visualize how your cholesterol,
                   blood sugar, or other metrics change to take proactive action.
                 </p>
               </div>
             </div>
-            <!-- Feature 4: Outbreak Alert -->
             <div
-              class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-700"
+              class="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 p-10 shadow-sm hover:shadow-soft-lg transition-all border border-slate-100 dark:border-slate-700"
             >
               <div
-                class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500"
               >
-                <span class="material-symbols-outlined text-9xl text-primary"
+                <span
+                  class="material-symbols-outlined text-[150px] text-accent-red"
                   >crisis_alert</span
                 >
               </div>
               <div class="relative z-10">
                 <div
-                  class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6"
+                  class="size-16 rounded-2xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-accent-red mb-8"
                 >
-                  <span class="material-symbols-outlined text-3xl">public</span>
+                  <span class="material-symbols-outlined text-4xl">public</span>
                 </div>
                 <h3
-                  class="text-xl font-bold text-[#0d131b] dark:text-white mb-3"
+                  class="text-2xl font-bold text-[#0d131b] dark:text-white mb-4"
                 >
                   Outbreak Alert System
                 </h3>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p
+                  class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg"
+                >
                   Receive anonymized, location-based alerts about health
                   outbreaks in your area to stay one step ahead of seasonal
                   illnesses.
@@ -500,179 +550,186 @@
         </div>
       </div>
     </div>
-    <!-- AI Insight Preview Section -->
     <div
-      class="w-full bg-white dark:bg-slate-900 py-20 border-y border-slate-100 dark:border-slate-800"
+      class="w-full bg-white dark:bg-slate-900 py-24 border-y border-slate-100 dark:border-slate-800"
     >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div
-          class="max-w-[1280px] w-full flex flex-col lg:flex-row items-center gap-16"
+          class="max-w-[1280px] w-full flex flex-col lg:flex-row items-center gap-20"
         >
-          <!-- Left Text -->
           <div class="flex-1">
             <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block"
+              class="text-primary font-bold text-sm tracking-widest uppercase mb-3 block"
               >Clear Insights</span
             >
-            <h2 class="text-3xl font-bold text-[#0d131b] dark:text-white mb-6">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-[#0d131b] dark:text-white mb-6"
+            >
               Make sense of your numbers instantly
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+            <p
+              class="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed"
+            >
               Stop Googling every number. HealthGuard AI categorizes your
               results into "Normal", "Attention Needed", or "Critical", giving
               you immediate peace of mind or a call to action.
             </p>
-            <ul class="flex flex-col gap-4">
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-accent-green"
-                  >check_circle</span
+            <ul class="flex flex-col gap-5">
+              <li class="flex items-center gap-4">
+                <div
+                  class="size-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
                 >
-                <span class="text-slate-700 dark:text-slate-300"
+                  <span class="material-symbols-outlined text-sm font-bold"
+                    >check</span
+                  >
+                </div>
+                <span class="text-slate-700 dark:text-slate-300 font-medium"
                   >Instant visual indicators for all metrics</span
                 >
               </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-accent-green"
-                  >check_circle</span
+              <li class="flex items-center gap-4">
+                <div
+                  class="size-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
                 >
-                <span class="text-slate-700 dark:text-slate-300"
-                  >Plain language explanations of what it means</span
+                  <span class="material-symbols-outlined text-sm font-bold"
+                    >check</span
+                  >
+                </div>
+                <span class="text-slate-700 dark:text-slate-300 font-medium"
+                  >Plain language explanations</span
                 >
               </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-accent-green"
-                  >check_circle</span
+              <li class="flex items-center gap-4">
+                <div
+                  class="size-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
                 >
-                <span class="text-slate-700 dark:text-slate-300"
+                  <span class="material-symbols-outlined text-sm font-bold"
+                    >check</span
+                  >
+                </div>
+                <span class="text-slate-700 dark:text-slate-300 font-medium"
                   >Historical comparison with previous tests</span
                 >
               </li>
             </ul>
           </div>
-          <!-- Right Visual: Mock Report -->
           <div class="flex-1 w-full max-w-lg">
             <div
-              class="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+              class="bg-background-off dark:bg-slate-800 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-500"
             >
               <div
                 class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center bg-white dark:bg-slate-800"
               >
                 <div class="flex items-center gap-3">
                   <div
-                    class="size-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-primary"
+                    class="size-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary"
                   >
                     <span class="material-symbols-outlined">hematology</span>
                   </div>
                   <div>
                     <h4
-                      class="font-bold text-sm text-[#0d131b] dark:text-white"
+                      class="font-bold text-base text-[#0d131b] dark:text-white"
                     >
                       Complete Blood Count
                     </h4>
-                    <p class="text-xs text-slate-500">Today, 9:41 AM</p>
+                    <p class="text-xs text-slate-500 font-medium">
+                      Today, 9:41 AM
+                    </p>
                   </div>
                 </div>
                 <span
-                  class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full"
+                  class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full uppercase tracking-wide"
                   >Analyzed</span
                 >
               </div>
               <div class="p-6 flex flex-col gap-4">
-                <!-- Item 1: Normal -->
                 <div
-                  class="flex items-center justify-between p-3 bg-white dark:bg-slate-700/50 rounded-lg border border-slate-100 dark:border-slate-600"
+                  class="flex items-center justify-between p-4 bg-white dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm"
                 >
                   <div>
-                    <p
-                      class="font-medium text-sm text-[#0d131b] dark:text-white"
-                    >
+                    <p class="font-bold text-sm text-[#0d131b] dark:text-white">
                       Hemoglobin
                     </p>
-                    <p class="text-xs text-slate-500">14.2 g/dL</p>
+                    <p class="text-xs text-slate-500 mt-1">14.2 g/dL</p>
                   </div>
                   <span
-                    class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded"
+                    class="px-3 py-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 text-xs font-bold rounded-lg border border-green-100 dark:border-green-800"
                     >Normal</span
                   >
                 </div>
-                <!-- Item 2: Warning -->
                 <div
-                  class="flex items-center justify-between p-3 bg-white dark:bg-slate-700/50 rounded-lg border border-slate-100 dark:border-slate-600"
+                  class="flex items-center justify-between p-4 bg-white dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm"
                 >
                   <div>
-                    <p
-                      class="font-medium text-sm text-[#0d131b] dark:text-white"
-                    >
+                    <p class="font-bold text-sm text-[#0d131b] dark:text-white">
                       Cholesterol (Total)
                     </p>
-                    <p class="text-xs text-slate-500">210 mg/dL</p>
+                    <p class="text-xs text-slate-500 mt-1">210 mg/dL</p>
                   </div>
                   <span
-                    class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-bold rounded"
+                    class="px-3 py-1 bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 text-xs font-bold rounded-lg border border-orange-100 dark:border-orange-800"
                     >Slightly High</span
                   >
                 </div>
-                <!-- Item 3: Critical -->
                 <div
-                  class="flex items-center justify-between p-3 bg-white dark:bg-slate-700/50 rounded-lg border border-slate-100 dark:border-slate-600"
+                  class="flex items-center justify-between p-4 bg-white dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm"
                 >
                   <div>
-                    <p
-                      class="font-medium text-sm text-[#0d131b] dark:text-white"
-                    >
+                    <p class="font-bold text-sm text-[#0d131b] dark:text-white">
                       Vitamin D
                     </p>
-                    <p class="text-xs text-slate-500">12 ng/mL</p>
+                    <p class="text-xs text-slate-500 mt-1">12 ng/mL</p>
                   </div>
                   <span
-                    class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs font-bold rounded"
+                    class="px-3 py-1 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 text-xs font-bold rounded-lg border border-red-100 dark:border-red-800"
                     >Low</span
                   >
                 </div>
               </div>
               <div
-                class="bg-blue-50 dark:bg-blue-900/10 p-4 text-xs text-slate-600 dark:text-slate-400"
+                class="bg-blue-50/50 dark:bg-blue-900/10 p-5 text-sm text-slate-700 dark:text-slate-300 border-t border-blue-100 dark:border-blue-900/30"
               >
-                <span class="font-bold text-primary block mb-1"
-                  >AI Insight:</span
-                >
-                Your Vitamin D levels are lower than optimal. Consider
-                increasing sun exposure or consulting your doctor about
-                supplements.
+                <div class="flex gap-2 mb-2">
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >auto_awesome</span
+                  >
+                  <span class="font-bold text-primary">AI Insight</span>
+                </div>
+                <p class="leading-relaxed">
+                  Your Vitamin D levels are lower than optimal. Consider
+                  increasing sun exposure or consulting your doctor about
+                  supplements.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- How It Works Section -->
     <div
-      class="w-full bg-slate-50 dark:bg-background-dark py-20"
+      class="w-full bg-background-off dark:bg-background-dark py-24"
       id="how-it-works"
     >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div class="max-w-[1280px] w-full flex flex-col">
           <div class="text-center mb-16">
             <h2
-              class="text-[#0d131b] dark:text-white text-3xl font-bold leading-tight"
+              class="text-[#0d131b] dark:text-white text-3xl md:text-4xl font-bold leading-tight"
             >
               How HealthGuard Works
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 mt-4">
+            <p class="text-slate-600 dark:text-slate-400 mt-4 text-lg">
               Five simple steps to secure health intelligence.
             </p>
           </div>
           <div
-            class="relative flex flex-col md:flex-row justify-between items-start gap-8"
+            class="flex flex-col md:flex-row justify-between items-start gap-4 lg:gap-0"
           >
-            <!-- Connecting Line (Desktop) -->
             <div
-              class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -z-10"
-            ></div>
-            <!-- Step 1 -->
-            <div class="flex flex-col items-center text-center flex-1 w-full">
+              class="flex flex-col items-center text-center flex-1 w-full group"
+            >
               <div
-                class="size-24 bg-white dark:bg-slate-800 border-4 border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-primary mb-6 shadow-sm z-10"
+                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
               >
                 <span class="material-symbols-outlined text-4xl"
                   >cloud_upload</span
@@ -681,14 +738,22 @@
               <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
                 1. Upload
               </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
+              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
                 Securely upload photos or PDFs of reports.
               </p>
             </div>
-            <!-- Step 2 -->
-            <div class="flex flex-col items-center text-center flex-1 w-full">
+            <div
+              class="hidden md:flex h-20 items-center justify-center text-slate-300 w-8 shrink-0"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >arrow_forward</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center text-center flex-1 w-full group"
+            >
               <div
-                class="size-24 bg-white dark:bg-slate-800 border-4 border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-primary mb-6 shadow-sm z-10"
+                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
               >
                 <span class="material-symbols-outlined text-4xl"
                   >document_scanner</span
@@ -697,28 +762,44 @@
               <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
                 2. Extract
               </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
+              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
                 AI digitizes and standardizes the data.
               </p>
             </div>
-            <!-- Step 3 -->
-            <div class="flex flex-col items-center text-center flex-1 w-full">
+            <div
+              class="hidden md:flex h-20 items-center justify-center text-slate-300 w-8 shrink-0"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >arrow_forward</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center text-center flex-1 w-full group"
+            >
               <div
-                class="size-24 bg-white dark:bg-slate-800 border-4 border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-primary mb-6 shadow-sm z-10"
+                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
               >
                 <span class="material-symbols-outlined text-4xl">insights</span>
               </div>
               <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
                 3. Analyze
               </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
+              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
                 Identify trends and potential health risks.
               </p>
             </div>
-            <!-- Step 4 -->
-            <div class="flex flex-col items-center text-center flex-1 w-full">
+            <div
+              class="hidden md:flex h-20 items-center justify-center text-slate-300 w-8 shrink-0"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >arrow_forward</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center text-center flex-1 w-full group"
+            >
               <div
-                class="size-24 bg-white dark:bg-slate-800 border-4 border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-primary mb-6 shadow-sm z-10"
+                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
               >
                 <span class="material-symbols-outlined text-4xl"
                   >notifications_active</span
@@ -727,14 +808,22 @@
               <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
                 4. Alert
               </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
+              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
                 Get insights and outbreak notifications.
               </p>
             </div>
-            <!-- Step 5 -->
-            <div class="flex flex-col items-center text-center flex-1 w-full">
+            <div
+              class="hidden md:flex h-20 items-center justify-center text-slate-300 w-8 shrink-0"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >arrow_forward</span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center text-center flex-1 w-full group"
+            >
               <div
-                class="size-24 bg-white dark:bg-slate-800 border-4 border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-primary mb-6 shadow-sm z-10"
+                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
               >
                 <span class="material-symbols-outlined text-4xl"
                   >qr_code_2</span
@@ -743,7 +832,7 @@
               <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
                 5. Share
               </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
+              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
                 Generate secure QRs for doctors.
               </p>
             </div>
@@ -751,111 +840,117 @@
         </div>
       </div>
     </div>
-    <!-- Smart QR Sharing Section -->
     <div
-      class="w-full bg-white dark:bg-slate-900 py-20 border-t border-slate-100 dark:border-slate-800"
+      class="w-full bg-white dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800"
     >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div
-          class="max-w-[1280px] w-full flex flex-col-reverse lg:flex-row items-center gap-16"
+          class="max-w-[1280px] w-full flex flex-col-reverse lg:flex-row items-center gap-20"
         >
-          <!-- Left Visual -->
           <div class="flex-1 w-full max-w-md">
             <div
-              class="relative bg-slate-900 rounded-3xl p-8 shadow-2xl text-white overflow-hidden"
+              class="relative bg-slate-900 rounded-[2rem] p-8 shadow-2xl text-white overflow-hidden ring-4 ring-slate-50 dark:ring-slate-800"
             >
-              <!-- Decorative bg -->
               <div
-                class="absolute -top-10 -right-10 size-40 bg-primary/30 rounded-full blur-3xl"
+                class="absolute -top-10 -right-10 size-48 bg-primary/40 rounded-full blur-3xl"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 size-40 bg-purple-500/20 rounded-full blur-3xl"
               ></div>
               <div class="flex flex-col items-center gap-6 relative z-10">
                 <div class="text-center">
-                  <h4 class="font-bold text-lg">Dr. Smith Access</h4>
-                  <p class="text-slate-400 text-sm">Valid for 15 mins</p>
+                  <h4 class="font-bold text-xl">Dr. Smith Access</h4>
+                  <p class="text-slate-400 text-sm mt-1">Expires in 15 mins</p>
                 </div>
                 <div
-                  class="p-4 bg-white rounded-2xl w-full aspect-square flex items-center justify-center relative"
+                  class="p-4 bg-white rounded-2xl w-full aspect-square flex items-center justify-center relative shadow-lg"
                   data-alt="QR code for secure medical data sharing"
                 >
-                  <!-- Fake QR Code Pattern -->
                   <div
-                    class="w-full h-full bg-[url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=HealthGuard')] bg-cover bg-center opacity-90"
+                    class="w-full h-full bg-[url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=HealthGuard')] bg-cover bg-center opacity-90 rounded-lg"
                   ></div>
-                  <!-- Lock Icon Overlay -->
                   <div
-                    class="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center"
+                    class="absolute inset-0 bg-white/40 backdrop-blur-[2px] flex items-center justify-center rounded-lg"
                   >
                     <div
-                      class="size-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg"
+                      class="size-16 bg-primary text-white rounded-2xl flex items-center justify-center shadow-xl border-4 border-white"
                     >
-                      <span class="material-symbols-outlined">lock</span>
+                      <span class="material-symbols-outlined text-3xl"
+                        >lock</span
+                      >
                     </div>
                   </div>
                 </div>
                 <div
-                  class="w-full bg-slate-800 rounded-xl p-3 flex items-center justify-between"
+                  class="w-full bg-slate-800/80 backdrop-blur rounded-xl p-4 flex items-center justify-between border border-slate-700"
                 >
                   <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-green-400"
-                      >visibility</span
+                    <div
+                      class="size-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"
                     >
-                    <span class="text-sm font-medium">Read Only</span>
+                      <span class="material-symbols-outlined text-sm"
+                        >visibility</span
+                      >
+                    </div>
+                    <span class="text-sm font-semibold">Read Only Access</span>
                   </div>
                   <div
-                    class="h-5 w-9 bg-primary rounded-full relative cursor-pointer"
+                    class="h-6 w-11 bg-primary rounded-full relative cursor-pointer shadow-inner"
                   >
                     <div
-                      class="absolute right-1 top-1 size-3 bg-white rounded-full"
+                      class="absolute right-1 top-1 size-4 bg-white rounded-full shadow-sm"
                     ></div>
                   </div>
                 </div>
                 <button
-                  class="w-full py-3 rounded-lg border border-red-500/30 text-red-400 text-sm font-bold hover:bg-red-500/10 transition-colors"
+                  class="w-full py-4 rounded-xl border border-red-500/30 text-red-400 text-sm font-bold hover:bg-red-500/10 transition-colors flex items-center justify-center gap-2"
                 >
+                  <span class="material-symbols-outlined text-lg">block</span>
                   Revoke Access
                 </button>
               </div>
             </div>
           </div>
-          <!-- Right Text -->
           <div class="flex-1">
             <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block"
+              class="text-primary font-bold text-sm tracking-widest uppercase mb-3 block"
               >Smart Sharing</span
             >
-            <h2 class="text-3xl font-bold text-[#0d131b] dark:text-white mb-6">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-[#0d131b] dark:text-white mb-6"
+            >
               You control who sees what
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+            <p
+              class="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed"
+            >
               No more emailing sensitive PDF files. Create a temporary,
               encrypted QR code for your doctor. You decide the access level and
               can revoke it instantly.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex flex-col gap-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col gap-3">
                 <div
-                  class="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-2"
+                  class="size-12 rounded-xl bg-blue-50 dark:bg-slate-800 flex items-center justify-center mb-1 text-primary"
                 >
-                  <span class="material-symbols-outlined text-primary"
-                    >timer</span
-                  >
+                  <span class="material-symbols-outlined text-2xl">timer</span>
                 </div>
-                <h4 class="font-bold text-[#0d131b] dark:text-white">
+                <h4 class="font-bold text-lg text-[#0d131b] dark:text-white">
                   Time-Limited
                 </h4>
                 <p class="text-sm text-slate-600 dark:text-slate-400">
                   Set access to expire automatically after 1 hour or 1 day.
                 </p>
               </div>
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-3">
                 <div
-                  class="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-2"
+                  class="size-12 rounded-xl bg-blue-50 dark:bg-slate-800 flex items-center justify-center mb-1 text-primary"
                 >
-                  <span class="material-symbols-outlined text-primary"
+                  <span class="material-symbols-outlined text-2xl"
                     >encrypted</span
                   >
                 </div>
-                <h4 class="font-bold text-[#0d131b] dark:text-white">
+                <h4 class="font-bold text-lg text-[#0d131b] dark:text-white">
                   End-to-End Encrypted
                 </h4>
                 <p class="text-sm text-slate-600 dark:text-slate-400">
@@ -867,60 +962,70 @@
         </div>
       </div>
     </div>
-    <!-- Security Section -->
-    <div class="w-full bg-slate-50 dark:bg-background-dark py-20" id="security">
+    <div
+      class="w-full bg-background-off dark:bg-background-dark py-24"
+      id="security"
+    >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div class="max-w-[1280px] w-full text-center">
-          <h2 class="text-[#0d131b] dark:text-white text-3xl font-bold mb-12">
+          <h2 class="text-[#0d131b] dark:text-white text-3xl font-bold mb-16">
             Uncompromised Privacy &amp; Security
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Item 1 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
-              class="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"
+              class="flex flex-col items-center justify-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow"
             >
-              <span class="material-symbols-outlined text-accent-green"
-                >verified_user</span
+              <div
+                class="size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-accent-green mb-2"
               >
-              <span class="text-sm font-bold text-[#0d131b] dark:text-white"
+                <span class="material-symbols-outlined text-2xl">lock</span>
+              </div>
+              <span class="text-lg font-bold text-[#0d131b] dark:text-white"
                 >AES-256 Encryption</span
               >
             </div>
-            <!-- Item 2 -->
             <div
-              class="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"
+              class="flex flex-col items-center justify-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow"
             >
-              <span class="material-symbols-outlined text-accent-green"
-                >fingerprint</span
+              <div
+                class="size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-accent-green mb-2"
               >
-              <span class="text-sm font-bold text-[#0d131b] dark:text-white"
-                >Biometric Access</span
+                <span class="material-symbols-outlined text-2xl">thumb_up</span>
+              </div>
+              <span class="text-lg font-bold text-[#0d131b] dark:text-white"
+                >User Consent</span
               >
             </div>
-            <!-- Item 3 -->
             <div
-              class="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"
+              class="flex flex-col items-center justify-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow"
             >
-              <span class="material-symbols-outlined text-accent-green"
-                >block</span
+              <div
+                class="size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-accent-green mb-2"
               >
-              <span class="text-sm font-bold text-[#0d131b] dark:text-white"
-                >Zero Data Selling</span
+                <span class="material-symbols-outlined text-2xl"
+                  >public_off</span
+                >
+              </div>
+              <span class="text-lg font-bold text-[#0d131b] dark:text-white"
+                >Anonymized Data</span
               >
             </div>
-            <!-- Item 4 -->
             <div
-              class="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"
+              class="flex flex-col items-center justify-center gap-4 p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow"
             >
-              <span class="material-symbols-outlined text-accent-green"
-                >public_off</span
+              <div
+                class="size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-accent-green mb-2"
               >
-              <span class="text-sm font-bold text-[#0d131b] dark:text-white"
-                >Anonymized Analytics</span
+                <span class="material-symbols-outlined text-2xl">info</span>
+              </div>
+              <span class="text-lg font-bold text-[#0d131b] dark:text-white"
+                >AI Disclaimer</span
               >
             </div>
           </div>
-          <p class="mt-8 text-xs text-slate-500 max-w-2xl mx-auto">
+          <p
+            class="mt-12 text-sm text-slate-500 max-w-3xl mx-auto italic border-t border-slate-200 dark:border-slate-800 pt-8"
+          >
             *Disclaimer: HealthGuard AI is an advanced data management tool and
             not a substitute for professional medical advice. Always consult a
             certified healthcare provider for diagnosis and treatment.
@@ -928,30 +1033,35 @@
         </div>
       </div>
     </div>
-    <!-- Final CTA -->
-    <div class="w-full bg-primary py-20 relative overflow-hidden">
+    <div class="w-full bg-primary py-24 relative overflow-hidden">
       <div
         class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"
+      ></div>
+      <div
+        class="absolute top-0 right-0 w-[400px] h-[400px] bg-white opacity-5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-green-400 opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"
       ></div>
       <div class="px-4 md:px-10 lg:px-40 flex justify-center relative z-10">
         <div
           class="max-w-3xl w-full text-center flex flex-col gap-8 items-center"
         >
-          <h2 class="text-white text-4xl font-bold leading-tight">
+          <h2 class="text-white text-4xl md:text-5xl font-bold leading-tight">
             Ready to take control of your health data?
           </h2>
-          <p class="text-blue-100 text-lg">
+          <p class="text-blue-100 text-xl font-medium">
             Join the waitlist today and be the first to experience the future of
             personal health management.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
             <button
-              class="bg-white text-primary hover:bg-slate-50 font-bold py-4 px-8 rounded-xl shadow-lg transition-colors w-full sm:w-auto min-w-[200px]"
+              class="bg-white text-primary hover:bg-slate-50 font-bold py-4 px-10 rounded-xl shadow-lg transition-colors w-full sm:w-auto min-w-[200px] text-lg"
             >
               Join the Waitlist
             </button>
             <button
-              class="bg-primary-dark/30 border border-white/30 text-white hover:bg-primary-dark/50 font-bold py-4 px-8 rounded-xl transition-colors w-full sm:w-auto min-w-[200px]"
+              class="bg-primary-dark/40 border border-white/20 text-white hover:bg-primary-dark/60 backdrop-blur-sm font-bold py-4 px-10 rounded-xl transition-colors w-full sm:w-auto min-w-[200px] text-lg"
             >
               Request Demo
             </button>
@@ -959,9 +1069,8 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
     <footer
-      class="w-full bg-slate-50 dark:bg-background-dark py-12 border-t border-slate-200 dark:border-slate-800"
+      class="w-full bg-background-off dark:bg-background-dark py-12 border-t border-slate-200 dark:border-slate-800"
     >
       <div class="px-4 md:px-10 lg:px-40 flex justify-center">
         <div
@@ -969,11 +1078,13 @@
         >
           <div class="flex items-center gap-2 text-[#0d131b] dark:text-white">
             <span class="material-symbols-outlined text-primary"
-              >health_and_safety</span
+              >local_hospital</span
             >
             <span class="font-bold text-lg">HealthGuard AI</span>
           </div>
-          <div class="flex gap-8 text-sm text-slate-600 dark:text-slate-400">
+          <div
+            class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400"
+          >
             <a class="hover:text-primary transition-colors" href="#"
               >Privacy Policy</a
             >

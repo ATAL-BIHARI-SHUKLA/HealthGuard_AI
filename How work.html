@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>How HealthGuard AI Works</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#136dec",
+              "accent-success": "#10b981",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101822",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .step-connector::after {
+        content: "";
+        position: absolute;
+        top: 48px;
+        bottom: -24px;
+        left: 28px;
+        width: 2px;
+        background-color: #e2e8f0;
+        z-index: 0;
+      }
+      .last-step::after {
+        display: none;
+      }
+      @media (min-width: 1024px) {
+        .step-connector::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-[#0d131b] font-display antialiased overflow-x-hidden"
+  >
+    <!-- Header -->
+    <div class="w-full bg-white border-b border-[#e7ecf3] sticky top-0 z-50">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-10">
+        <header class="flex items-center justify-between h-16 sm:h-20">
+          <a href="/index.html"
+            ><div class="flex items-center gap-4 text-[#0d131b]">
+              <div
+                class="flex items-center justify-center size-10 rounded-lg bg-primary/10 text-primary"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >health_and_safety</span
+                >
+              </div>
+              <h2
+                class="text-[#0d131b] text-xl font-bold leading-tight tracking-tight"
+              >
+                HealthGuard AI
+              </h2>
+            </div></a
+          >
+          <div class="hidden lg:flex items-center gap-8">
+            <nav class="flex items-center gap-6">
+              <a
+                class="text-[#4c6c9a] hover:text-primary transition-colors text-sm font-semibold"
+                href="/index.html"
+                >Home</a
+              >
+              <a
+                class="text-[#4c6c9a] hover:text-primary transition-colors text-sm font-semibold"
+                href="#"
+                >Features</a
+              >
+              <a class="text-primary text-sm font-bold" href="#"
+                >How It Works</a
+              >
+              <a
+                class="text-[#4c6c9a] hover:text-primary transition-colors text-sm font-semibold"
+                href="#"
+                >Pricing</a
+              >
+            </nav>
+          </div>
+          <div class="flex gap-3">
+            <button
+              class="hidden sm:flex h-10 px-5 items-center justify-center rounded-lg bg-transparent hover:bg-slate-50 border border-slate-200 text-[#0d131b] text-sm font-bold transition-all"
+            >
+              Log In
+            </button>
+            <button
+              class="flex h-10 px-5 items-center justify-center rounded-lg bg-primary hover:bg-blue-700 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
+            >
+              Get Started
+            </button>
+          </div>
+        </header>
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="relative bg-white py-16 sm:py-24 lg:py-32 overflow-hidden">
+      <div
+        class="absolute inset-0 z-0 opacity-40"
+        style="
+          background-image: radial-gradient(#136dec 0.5px, transparent 0.5px),
+            radial-gradient(#136dec 0.5px, #ffffff 0.5px);
+          background-size: 20px 20px;
+          background-position: 0 0, 10px 10px;
+        "
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-0"
+      ></div>
+      <div class="relative z-10 max-w-[960px] mx-auto px-4 text-center">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6"
+        >
+          <span class="material-symbols-outlined text-lg">verified</span>
+          Verified AI Technology
+        </div>
+        <h1
+          class="text-[#0d131b] text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6"
+        >
+          How HealthGuard AI Works
+        </h1>
+        <p
+          class="text-[#4c6c9a] text-lg sm:text-xl font-medium leading-relaxed max-w-2xl mx-auto"
+        >
+          From medical report to intelligent health insight in minutes. We
+          simplify the complex journey of your health data.
+        </p>
+      </div>
+    </section>
+    <!-- Timeline Steps Section -->
+    <section class="relative py-12 lg:py-24 bg-white">
+      <div class="max-w-[1100px] mx-auto px-4 sm:px-6">
+        <!-- Desktop Grid / Mobile Vertical Timeline -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative">
+          <!-- Connector Line for Desktop -->
+          <div
+            class="hidden lg:block absolute top-[60px] left-[16.66%] right-[16.66%] h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0"
+          ></div>
+          <!-- Step 1 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >upload_file</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                1
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-primary transition-colors"
+              >
+                Upload Report
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Securely upload your medical PDF, image, or scanned document to
+                our encrypted cloud server.
+              </p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >document_scanner</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                2
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-primary transition-colors"
+              >
+                AI Extraction (OCR)
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Our advanced OCR technology scans every pixel to digitize
+                values, dates, and test names instantly.
+              </p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0 last-step lg:last-step-none"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >translate</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                3
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-primary transition-colors"
+              >
+                Jargon Simplified
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Natural Language Processing (NLP) translates complex medical
+                terms into plain, easy-to-understand language.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Curved Connector for Desktop Flow (Visual Break) -->
+        <div class="hidden lg:block relative h-24">
+          <svg
+            class="absolute inset-0 w-full h-full text-primary/30"
+            preserveaspectratio="none"
+          >
+            <path
+              d="M 960 0 Q 960 50 550 50 Q 140 50 140 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-dasharray="8 8"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </div>
+        <!-- Second Row -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative mt-8 lg:mt-0"
+        >
+          <!-- Connector Line for Desktop Row 2 -->
+          <div
+            class="hidden lg:block absolute top-[60px] left-[16.66%] right-[16.66%] h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0"
+          ></div>
+          <!-- Step 4 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0 lg:order-last"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >notifications_active</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-accent-success text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                6
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-accent-success transition-colors"
+              >
+                Outbreak Alerts
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Stay ahead of risks. The system cross-references your data with
+                local health trends to alert you of potential outbreaks.
+              </p>
+            </div>
+          </div>
+          <!-- Step 5 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0 lg:order-2"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >qr_code_scanner</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                5
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-primary transition-colors"
+              >
+                Secure QR Code
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Generate a privacy-first QR code to share specific parts of your
+                medical history instantly with doctors.
+              </p>
+            </div>
+          </div>
+          <!-- Step 6 -->
+          <div
+            class="relative group flex flex-col lg:items-center step-connector pl-20 lg:pl-0 last-step lg:order-first"
+          >
+            <div
+              class="absolute left-0 top-0 lg:relative lg:mb-6 z-10 flex items-center justify-center size-14 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 group-hover:scale-110 transition-transform duration-300"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >analytics</span
+              >
+              <div
+                class="absolute -top-2 -right-2 size-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white"
+              >
+                4
+              </div>
+            </div>
+            <div class="lg:text-center">
+              <h3
+                class="text-lg font-bold text-[#0d131b] mb-2 group-hover:text-primary transition-colors"
+              >
+                Trends &amp; Risks
+              </h3>
+              <p class="text-[#4c6c9a] text-sm leading-relaxed">
+                Visualize your health over time. We identify anomalies and
+                trends that might be missed by the human eye.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Visual Divider / Image Break -->
+    <section class="w-full bg-background-light py-10 px-4">
+      <div
+        class="max-w-[1024px] mx-auto rounded-3xl overflow-hidden shadow-2xl bg-white"
+      >
+        <div class="flex flex-col md:flex-row items-center">
+          <div
+            class="w-full md:w-1/2 h-64 md:h-96 relative bg-cover bg-center"
+            data-alt="Doctor analyzing digital medical charts on a tablet"
+            style="
+              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF3IEyjN0XWiVAAEQsJBE4Lzx3uOJRExnBDmgzFoaLuziz9VPXNmmp5wGlbiFUpnp-vKi8FPr49xrlQT3xmqg7lU88eUSyZtEV8yhH0r7VxM3FX9BE2QcjYoYUe6aCX4aEZZ2IUcxq5OOSIcer7Hr5xwwGydZDsmWBTBQTqd_b6zsBT6Q1CIRGKPvtcHeOvaYdA_TUEE-EhR_eAGS6Pu5OxrV0m7tbJ4IRP-tjkE7BmtWPyUqVUgwYIlZXO_anZVV3BEPicE5lmsU');
+            "
+          >
+            <div
+              class="absolute inset-0 bg-primary/20 mix-blend-multiply"
+            ></div>
+          </div>
+          <div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
+            <div
+              class="mb-4 size-12 rounded-full bg-accent-success/10 flex items-center justify-center text-accent-success"
+            >
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <h3 class="text-2xl font-bold text-[#0d131b] mb-3">
+              Enterprise-Grade Security
+            </h3>
+            <p class="text-[#4c6c9a] mb-6">
+              Your health data is sensitive. That's why we employ AES-256
+              encryption for all stored data and ensure HIPAA compliance at
+              every step of the process.
+            </p>
+            <a
+              class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all"
+              href="#"
+            >
+              Learn about our security
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-20 lg:py-32 bg-white text-center">
+      <div class="max-w-[720px] mx-auto px-4">
+        <h2
+          class="text-[#0d131b] text-3xl sm:text-4xl font-black leading-tight mb-6"
+        >
+          Ready to take control of your health data?
+        </h2>
+        <p class="text-[#4c6c9a] text-lg mb-10">
+          Join thousands of users simplifying their medical records today. It
+          takes less than 2 minutes to get started.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <button
+            class="w-full sm:w-auto h-12 px-8 flex items-center justify-center rounded-xl bg-primary hover:bg-blue-700 text-white text-base font-bold shadow-lg shadow-blue-500/30 transition-all"
+          >
+            Upload Report Now
+          </button>
+          <button
+            class="w-full sm:w-auto h-12 px-8 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#0d131b] text-base font-bold transition-all"
+          >
+            View Sample Report
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-background-light border-t border-[#e7ecf3] pt-16 pb-8">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+          <div class="col-span-1 md:col-span-1">
+            <div class="flex items-center gap-2 text-[#0d131b] mb-4">
+              <div
+                class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >health_and_safety</span
+                >
+              </div>
+              <h2 class="text-lg font-bold">HealthGuard AI</h2>
+            </div>
+            <p class="text-[#4c6c9a] text-sm leading-relaxed">
+              Empowering patients with intelligent insights from their medical
+              data.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Product</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">Features</a></li>
+              <li><a class="hover:text-primary" href="#">Security</a></li>
+              <li><a class="hover:text-primary" href="#">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Company</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">About Us</a></li>
+              <li><a class="hover:text-primary" href="#">Careers</a></li>
+              <li><a class="hover:text-primary" href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Legal</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+              <li>
+                <a class="hover:text-primary" href="#">Terms of Service</a>
+              </li>
+              <li><a class="hover:text-primary" href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#e7ecf3] gap-4"
+        >
+          <p class="text-[#4c6c9a] text-sm">
+            © 2026 HealthGuard AI. All rights reserved.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">flutter_dash</span></a
+            >
+            <!-- Using flutter_dash as a generic bird/twitter icon equivalent -->
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">work</span></a
+            >
+            <!-- Using work as linkedin equivalent -->
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">public</span></a
+            >
+            <!-- Using public as fb equivalent -->
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
