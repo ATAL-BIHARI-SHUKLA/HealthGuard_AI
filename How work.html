@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html class="light" lang="en">
   <head>
@@ -44,7 +44,11 @@
     </script>
     <style>
       .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
       }
       .step-connector::after {
         content: "";
@@ -134,10 +138,13 @@
       <div
         class="absolute inset-0 z-0 opacity-40"
         style="
-          background-image: radial-gradient(#136dec 0.5px, transparent 0.5px),
+          background-image:
+            radial-gradient(#136dec 0.5px, transparent 0.5px),
             radial-gradient(#136dec 0.5px, #ffffff 0.5px);
           background-size: 20px 20px;
-          background-position: 0 0, 10px 10px;
+          background-position:
+            0 0,
+            10px 10px;
         "
       ></div>
       <div
@@ -377,7 +384,7 @@
             class="w-full md:w-1/2 h-64 md:h-96 relative bg-cover bg-center"
             data-alt="Doctor analyzing digital medical charts on a tablet"
             style="
-              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF3IEyjN0XWiVAAEQsJBE4Lzx3uOJRExnBDmgzFoaLuziz9VPXNmmp5wGlbiFUpnp-vKi8FPr49xrlQT3xmqg7lU88eUSyZtEV8yhH0r7VxM3FX9BE2QcjYoYUe6aCX4aEZZ2IUcxq5OOSIcer7Hr5xwwGydZDsmWBTBQTqd_b6zsBT6Q1CIRGKPvtcHeOvaYdA_TUEE-EhR_eAGS6Pu5OxrV0m7tbJ4IRP-tjkE7BmtWPyUqVUgwYIlZXO_anZVV3BEPicE5lmsU');
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCF3IEyjN0XWiVAAEQsJBE4Lzx3uOJRExnBDmgzFoaLuziz9VPXNmmp5wGlbiFUpnp-vKi8FPr49xrlQT3xmqg7lU88eUSyZtEV8yhH0r7VxM3FX9BE2QcjYoYUe6aCX4aEZZ2IUcxq5OOSIcer7Hr5xwwGydZDsmWBTBQTqd_b6zsBT6Q1CIRGKPvtcHeOvaYdA_TUEE-EhR_eAGS6Pu5OxrV0m7tbJ4IRP-tjkE7BmtWPyUqVUgwYIlZXO_anZVV3BEPicE5lmsU&quot;);
             "
           >
             <div
@@ -444,16 +451,18 @@
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
           <div class="col-span-1 md:col-span-1">
-            <div class="flex items-center gap-2 text-[#0d131b] mb-4">
-              <div
-                class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary"
+            <a href="/index.html"
+              ><div
+                class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
               >
-                <span class="material-symbols-outlined text-lg"
-                  >health_and_safety</span
-                >
-              </div>
-              <h2 class="text-lg font-bold">HealthGuard AI</h2>
-            </div>
+                <div style="width: 65px">
+                  <img src="/Logo.png" alt="logo" />
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-tight">
+                  HealthGuard AI
+                </h2>
+              </div></a
+            >
             <p class="text-[#4c6c9a] text-sm leading-relaxed">
               Empowering patients with intelligent insights from their medical
               data.

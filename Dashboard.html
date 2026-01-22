@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthGuard AI - User Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155; 
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased overflow-hidden selection:bg-primary/20 selection:text-primary">
+<div class="flex h-screen w-full">
+<!-- Sidebar -->
+<aside class="hidden md:flex flex-col w-64 h-full border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 z-20">
+<div class="flex flex-col h-full p-4 justify-between">
+<div class="flex flex-col gap-8">
+<!-- Logo -->
+<div class="flex gap-3 items-center px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-xl size-10 shadow-sm" data-alt="Abstract blue cross medical logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChfTgkDOx-TywQD87kz7o1V_dp7XtM2khhOWMRT2onGizqDMtQ5UO_GFlDszrkwvgmwreqhSy-KcSXSDDZvWSMEBusmwIXrGDXhKg2jwGK3Si86LglQiz3_BPwHUPNxfJr9AeUpTE8CPq0vfWDMEsP09IkmntgEm9A-s5jCNSAa2UwEKoNBBNiJiGv8i4v2U3YGFqSbOXVsxo3lbGXuJqBg5lVyQPpwUpJruNaKWfiQhs0K0jKk8C4Ee87Q23tTBUmndMWAT0DRhdj");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-none tracking-tight">HealthGuard AI</h1>
+<p class="text-primary text-xs font-medium mt-1">Patient Portal</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-900 dark:group-hover:text-white transition-colors">description</span>
+<span class="text-sm font-medium">My Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-900 dark:group-hover:text-white transition-colors">psychology</span>
+<span class="text-sm font-medium">AI Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-900 dark:group-hover:text-white transition-colors">share</span>
+<span class="text-sm font-medium">Sharing Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-900 dark:group-hover:text-white transition-colors">account_circle</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</nav>
+</div>
+<!-- User footer -->
+<div class="border-t border-slate-200 dark:border-slate-800 pt-4 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-cover bg-center ring-2 ring-white dark:ring-slate-800 shadow-sm" data-alt="Portrait of Alex user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0W2EzJtxaGPUJf3jpzF0XRr15sUceCccpG0L2F8yTYBf_eTfqw60N4nAIFlaOYnhEkAtkbh-0EFXVIA2JNQKh5mI3k92wG-F16Z8GhEEee0rtj0WPI_ARODec9e0-VHLJAxiaJ-YiWSw6BzWc6YoMo75-znRzHAYFQS_tdgE868C7vp3iRIQSHMMaqLH6FQKcq3uieFdwhk5dZt3v7OLbTmlfPlgf7QJBbLCo1q0N9ioVXqbgB71pZtbChTaOQ-fQpCPRzuCVFt9L");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Alex Morgan</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Premium Plan</span>
+</div>
+<button class="ml-auto text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Bar -->
+<header class="w-full h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-10">
+<div class="md:hidden flex items-center gap-2">
+<button class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-bold text-slate-900 dark:text-white">HealthGuard</span>
+</div>
+<div class="hidden md:flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span>Last login: Today, 9:41 AM</span>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+                    Encrypted Connection
+                </span>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:text-primary dark:text-slate-400 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<button class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+<span class="material-symbols-outlined text-[20px]">qr_code</span>
+<span class="hidden sm:inline">Generate QR</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+<div class="max-w-6xl mx-auto space-y-6">
+<!-- Welcome Header -->
+<div class="flex flex-wrap justify-between items-end gap-4 mb-2">
+<div class="space-y-1">
+<h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">Welcome back, Alex</h2>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Your health score is <span class="text-emerald-600 dark:text-emerald-400 font-bold">Stable</span>. New insights available.</p>
+</div>
+<div class="hidden sm:flex">
+<!-- Date Picker filter placeholder -->
+<div class="flex items-center bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 gap-2 shadow-sm">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">calendar_today</span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Last 30 Days</span>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- 1. Upload Widget (Top Left) -->
+<div class="md:col-span-1 bg-white dark:bg-slate-900 rounded-xl border-2 border-dashed border-primary/20 dark:border-primary/10 hover:border-primary/40 dark:hover:border-primary/30 transition-colors group cursor-pointer p-6 flex flex-col items-center justify-center text-center gap-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 dark:bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-full text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl">upload_file</span>
+</div>
+<div class="z-10">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Upload Report</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 max-w-[200px] mx-auto">Drag &amp; drop PDF, JPG, or DCM files here</p>
+</div>
+<button class="mt-2 text-xs font-bold bg-primary text-white px-4 py-2 rounded shadow-sm hover:bg-blue-600 transition-colors z-10">
+                            Browse Files
+                        </button>
+</div>
+<!-- 2. AI Insight Card (Top Right - Spans 2) -->
+<div class="md:col-span-2 bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col sm:flex-row gap-6 items-center sm:items-stretch relative overflow-hidden">
+<!-- Background decoration -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-400/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="flex-1 flex flex-col justify-center gap-4 z-10">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span> AI Analysis
+                                </span>
+<span class="text-slate-400 text-xs">Just now</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Vitamin D Levels Improving</h3>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                    Based on your latest blood work, the deficiency noted last month is resolving. Your levels have increased by <span class="font-bold text-emerald-600 dark:text-emerald-400">15%</span>. Keep up the supplement routine.
+                                </p>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex items-center gap-1 text-sm font-bold text-primary hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
+                                    View Full Report <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="w-full sm:w-48 h-40 sm:h-auto rounded-lg bg-white dark:bg-slate-950 flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-inner relative overflow-hidden" data-alt="Abstract graphic representation of vitamin levels rising">
+<!-- Abstract Chart Graphic -->
+<svg class="w-full h-full text-primary opacity-20" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L20 80 L40 85 L60 60 L80 65 L100 40 V100 H0 Z" fill="currentColor"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<span class="block text-3xl font-black text-primary">42</span>
+<span class="text-xs text-slate-500 uppercase font-semibold">ng/mL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Vitals Stats (Full Row) -->
+<div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-pink-500">favorite</span>
+<span class="text-sm font-semibold">Heart Rate</span>
+</div>
+<span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs px-2 py-1 rounded-full font-bold">Normal</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">72</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 ml-1">bpm</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-blue-500">water_drop</span>
+<span class="text-sm font-semibold">Blood Pressure</span>
+</div>
+<span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs px-2 py-1 rounded-full font-bold">Normal</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">120/80</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 ml-1">mmHg</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-orange-500">nephrology</span>
+<span class="text-sm font-semibold">GFR</span>
+</div>
+<span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs px-2 py-1 rounded-full font-bold">Caution</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">88</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 ml-1">mL/min</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-purple-500">monitor_weight</span>
+<span class="text-sm font-semibold">BMI</span>
+</div>
+<span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs px-2 py-1 rounded-full font-bold">Normal</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">22.4</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 ml-1">kg/m²</span>
+</div>
+</div>
+</div>
+<!-- 4. Health Trend Graph (Bottom Left - Spans 2) -->
+<div class="md:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">Health Trends</h3>
+<div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+<button class="px-3 py-1 text-xs font-bold bg-white dark:bg-slate-600 rounded text-slate-900 dark:text-white shadow-sm">Glucose</button>
+<button class="px-3 py-1 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Cholesterol</button>
+<button class="px-3 py-1 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Iron</button>
+</div>
+</div>
+<!-- Simulated Chart -->
+<div class="flex-1 w-full h-48 relative flex items-end justify-between gap-2 px-2 pb-4 border-b border-slate-100 dark:border-slate-800">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+</div>
+<!-- SVG Line -->
+<svg class="absolute inset-0 w-full h-full pb-4 px-2 overflow-visible" preserveaspectratio="none">
+<defs>
+<lineargradient id="gradientLine" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#137fec" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 80 Q 50 100, 100 60 T 200 70 T 300 40 T 400 50 T 500 20 T 600 30" fill="url(#gradientLine)" stroke="none"></path>
+<path d="M0 80 Q 50 100, 100 60 T 200 70 T 300 40 T 400 50 T 500 20 T 600 30" fill="none" stroke="#137fec" stroke-linecap="round" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+<!-- Data Points -->
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="0%" cy="80" r="4"></circle>
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="20%" cy="60" r="4"></circle>
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="40%" cy="70" r="4"></circle>
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="60%" cy="40" r="4"></circle>
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="80%" cy="50" r="4"></circle>
+<circle class="fill-white dark:fill-slate-900 stroke-primary stroke-2" cx="100%" cy="30" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-xs text-slate-400 mt-2 font-medium uppercase tracking-wider">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+<!-- 5. Recent Reports List (Bottom Right) -->
+<div class="md:col-span-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-0 shadow-sm flex flex-col overflow-hidden">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">Recent Reports</h3>
+<button class="text-xs text-primary font-bold hover:underline">View All</button>
+</div>
+<div class="flex-1 overflow-y-auto max-h-64">
+<ul class="divide-y divide-slate-100 dark:divide-slate-800">
+<li class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center gap-3">
+<div class="bg-red-50 dark:bg-red-900/20 p-2 rounded text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Comprehensive Metabolic Panel</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">June 12, 2023</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[18px]">chevron_right</span>
+</li>
+<li class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center gap-3">
+<div class="bg-blue-50 dark:bg-blue-900/20 p-2 rounded text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Lumbar Spine MRI</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">May 20, 2023</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[18px]">chevron_right</span>
+</li>
+<li class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center gap-3">
+<div class="bg-red-50 dark:bg-red-900/20 p-2 rounded text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Lipid Panel</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">April 05, 2023</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[18px]">chevron_right</span>
+</li>
+</ul>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 text-center">
+<button class="text-xs font-medium text-slate-500 hover:text-primary flex items-center justify-center gap-1 w-full">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                                Encrypted &amp; Stored Securely
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer spacing -->
+<div class="h-12"></div>
+</div>
+</main>
+</div>
+</body></html>
