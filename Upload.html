@@ -1,0 +1,260 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HealthGuard AI | Upload Medical Report</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#136dec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101822",
+              "accent-green": "#10b981",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col"
+  >
+    <!-- Top Navigation Bar -->
+    <header
+      class="w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-3">
+            <div class="text-primary">
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                viewbox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight">HealthGuard AI</span>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium"
+              href="#"
+              >Dashboard</a
+            >
+            <a
+              class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium"
+              href="#"
+              >Medical Records</a
+            >
+            <a
+              class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium"
+              href="#"
+              >Appointments</a
+            >
+          </nav>
+          <div class="flex items-center gap-4">
+            <button
+              class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+            >
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <div
+              class="h-8 w-8 rounded-full bg-cover bg-center ring-2 ring-primary/20"
+              data-alt="User profile avatar"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB8cwkPt8c9DAkAzD04yYx45jagPNNOb1MgM-tqLtleJuyTLJG2wAOFmr90wdfKUQeak-cf5D1og11G29q3iE11otVHOaSvQGB9-xr_TVKq8kxMC1JSzI40GCxkEme65gHPdJON4etzDZokzt05Y9qP_Db98n_WZ884tMPVStwRU8Y-MVT_mHlGc_wg523SWz496BCjqIMJv0SjChrst0e2yw1L_y4YPva79Uk9GZqckagu2hrXr4biCFFODzJn59l7zB-A75NiMKs&quot;);
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+      <div class="w-full max-w-2xl">
+        <!-- Central Upload Card -->
+        <div
+          class="bg-white dark:bg-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+        >
+          <!-- Card Header -->
+          <div
+            class="p-8 text-center border-b border-slate-50 dark:border-slate-800"
+          >
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+              Upload Medical Report
+            </h1>
+            <p class="text-slate-500 dark:text-slate-400">
+              Securely analyze your healthcare documents using AI.
+            </p>
+          </div>
+          <!-- Drop Zone -->
+          <div class="p-8">
+            <div
+              class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-xl p-12 text-center flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950/50 cursor-pointer group"
+            >
+              <div
+                class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >cloud_upload</span
+                >
+              </div>
+              <h3
+                class="text-lg font-semibold text-slate-900 dark:text-white mb-1"
+              >
+                Drag &amp; drop your PDF or image here
+              </h3>
+              <p class="text-slate-500 dark:text-slate-400 mb-6">
+                or
+                <span class="text-primary font-medium">browse files</span> from
+                your computer
+              </p>
+              <div
+                class="flex gap-4 text-xs font-medium uppercase tracking-wider text-slate-400"
+              >
+                <span
+                  class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded"
+                  >PDF</span
+                >
+                <span
+                  class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded"
+                  >JPG</span
+                >
+                <span
+                  class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded"
+                  >PNG</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Privacy Note Action Panel -->
+          <div class="px-8 pb-4">
+            <div
+              class="flex items-center gap-4 p-4 rounded-lg border border-primary/20 bg-primary/5 dark:bg-primary/10"
+            >
+              <span class="material-symbols-outlined text-primary shrink-0"
+                >lock</span
+              >
+              <div class="flex flex-col gap-0.5">
+                <p class="text-sm font-bold text-slate-900 dark:text-white">
+                  Privacy Note
+                </p>
+                <p
+                  class="text-xs text-slate-600 dark:text-slate-400 leading-normal"
+                >
+                  Your documents are AES-256 encrypted and only accessible by
+                  you. We comply with HIPAA and GDPR standards.
+                </p>
+              </div>
+              <a
+                class="ml-auto text-xs font-bold text-primary hover:underline whitespace-nowrap hidden sm:inline-block"
+                href="#"
+                >Security Details</a
+              >
+            </div>
+          </div>
+          <!-- Footer Buttons -->
+          <div class="p-8 pt-4 flex flex-col sm:flex-row gap-3">
+            <button
+              class="flex-1 px-6 py-3 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            >
+              Cancel
+            </button>
+            <!-- Disabled State Example -->
+            <button
+              class="flex-1 px-6 py-3 bg-primary/50 text-white/70 font-bold rounded-lg cursor-not-allowed flex items-center justify-center gap-2"
+              disabled=""
+            >
+              <span class="truncate">Analyze Report</span>
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Trust Badges -->
+        <div
+          class="mt-8 flex justify-center gap-8 items-center opacity-50 grayscale hover:grayscale-0 transition-all duration-300"
+        >
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            <span class="text-xs font-bold uppercase tracking-widest"
+              >HIPAA Compliant</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">encrypted</span>
+            <span class="text-xs font-bold uppercase tracking-widest"
+              >256-bit Encryption</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">shield</span>
+            <span class="text-xs font-bold uppercase tracking-widest"
+              >GDPR Ready</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-8 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="flex flex-wrap items-center justify-center gap-6 mb-4">
+          <a
+            class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-colors"
+            href="#"
+            >Contact Support</a
+          >
+        </div>
+        <p class="text-slate-400 dark:text-slate-600 text-sm">
+          © 2024 HealthGuard AI. Built for clinical excellence.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

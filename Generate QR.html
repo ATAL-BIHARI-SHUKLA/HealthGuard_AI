@@ -1,0 +1,655 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HealthGuard AI - QR Sharing &amp; Access Control</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "teal-accent": "#0d9488",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        ::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #e2e8f0;
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #cbd5e1;
+        }
+      }
+      .nav-link-active {
+        @apply text-primary font-semibold border-b-2 border-primary;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/20 selection:text-primary h-screen flex flex-col overflow-hidden"
+  >
+    <nav
+      class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-50 shrink-0"
+    >
+      <div class="flex items-center gap-3">
+        <a href="/index.html"
+          ><div
+            class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+          >
+            <div style="width: 65px">
+              <img src="/Logo.png" alt="logo" />
+            </div>
+            <h2 class="text-xl font-bold leading-tight tracking-tight">
+              HealthGuard AI
+            </h2>
+          </div></a
+        >
+      </div>
+      <div class="hidden lg:flex items-center gap-8">
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="/index.html"
+          >Home</a
+        >
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="#"
+          >Features</a
+        >
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="/How work.html"
+          >How It Works</a
+        >
+        <a
+          class="text-sm font-semibold text-primary border-b-2 border-primary py-5"
+          href="/Dashboard.html"
+          >Dashboard</a
+        >
+      </div>
+      <div class="flex items-center gap-3 md:gap-5">
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+        >
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <button
+          class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+        >
+          <span class="material-symbols-outlined text-[22px]"
+            >notifications</span
+          >
+          <span
+            class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"
+          ></span>
+        </button>
+        <button
+          class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-soft hover:bg-blue-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+        >
+          <span class="material-symbols-outlined text-[18px]">qr_code</span>
+          <span>Generate QR</span>
+        </button>
+        <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+        <div
+          class="w-9 h-9 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-700 cursor-pointer"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC0W2EzJtxaGPUJf3jpzF0XRr15sUceCccpG0L2F8yTYBf_eTfqw60N4nAIFlaOYnhEkAtkbh-0EFXVIA2JNQKh5mI3k92wG-F16Z8GhEEee0rtj0WPI_ARODec9e0-VHLJAxiaJ-YiWSw6BzWc6YoMo75-znRzHAYFQS_tdgE868C7vp3iRIQSHMMaqLH6FQKcq3uieFdwhk5dZt3v7OLbTmlfPlgf7QJBbLCo1q0N9ioVXqbgB71pZtbChTaOQ-fQpCPRzuCVFt9L&quot;);
+          "
+        ></div>
+      </div>
+    </nav>
+    <div class="flex flex-1 overflow-hidden">
+      <aside
+        class="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0"
+      >
+        <div class="flex flex-col h-full p-6 justify-between">
+          <nav class="flex flex-col gap-2">
+            <p
+              class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 px-3"
+            >
+              Main Menu
+            </p>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/Dashboard.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >grid_view</span
+              >
+              <span class="text-sm font-medium">Overview</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/Report.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >description</span
+              >
+              <span class="text-sm font-medium">Reports</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/Analysis.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >analytics</span
+              >
+              <span class="text-sm font-medium">Analysis</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/5 text-primary font-bold group transition-all"
+              href="/Generate QR.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >share_reviews</span
+              >
+              <span class="text-sm font-bold">Sharing</span>
+            </a>
+            <p
+              class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-6 mb-2 px-3"
+            >
+              Account
+            </p>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >settings</span
+              >
+              <span class="text-sm font-medium">Settings</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[22px]">help</span>
+              <span class="text-sm font-medium">Support</span>
+            </a>
+          </nav>
+          <div
+            class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-800"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-primary text-[20px]"
+                >verified</span
+              >
+              <span
+                class="text-xs font-bold text-slate-900 dark:text-white tracking-tight"
+                >Premium Plan</span
+              >
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">
+              Privacy-first secure sharing enabled.
+            </p>
+            <button
+              class="w-full py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 transition-colors"
+            >
+              Manage Storage
+            </button>
+          </div>
+        </div>
+      </aside>
+      <main class="flex-1 flex flex-col h-full overflow-y-auto">
+        <div class="max-w-7xl mx-auto w-full p-6 md:p-10 space-y-8">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+          >
+            <div>
+              <h2
+                class="text-3xl font-black text-slate-900 dark:text-white tracking-tight"
+              >
+                Secure Sharing
+              </h2>
+              <div class="flex items-center gap-2 mt-1">
+                <span
+                  class="flex items-center gap-1 text-primary font-bold text-sm bg-primary/5 px-2 py-0.5 rounded-full"
+                >
+                  <span class="material-symbols-outlined text-[14px]"
+                    >lock</span
+                  >
+                  Privacy-First
+                </span>
+                <span class="text-slate-400 text-sm">•</span>
+                <span
+                  class="text-slate-500 dark:text-slate-400 text-sm font-medium"
+                  >Manage how and with whom you share medical data</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 lg:col-span-4 space-y-6">
+              <div
+                class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-6"
+              >
+                <h3
+                  class="text-lg font-bold text-slate-900 dark:text-white mb-4"
+                >
+                  Create Secure QR
+                </h3>
+                <div class="space-y-4">
+                  <div
+                    class="p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-all"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🔒</span>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Private Access
+                        </p>
+                        <p class="text-[11px] text-slate-500">
+                          Only you can view. Password required.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-teal-500/30 cursor-pointer transition-all"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">👨‍⚕️</span>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Doctor - One-time
+                        </p>
+                        <p class="text-[11px] text-slate-500">
+                          Expires after a single successful scan.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-teal-500/30 cursor-pointer transition-all"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🌐</span>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Public - Anonymized
+                        </p>
+                        <p class="text-[11px] text-slate-500">
+                          Personal identifiers removed from data.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="w-full py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-colors mt-2"
+                  >
+                    Generate Access Code
+                  </button>
+                </div>
+              </div>
+              <div
+                class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft overflow-hidden"
+              >
+                <div
+                  class="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between"
+                >
+                  <h3 class="font-bold text-slate-900 dark:text-white">
+                    Active Shares
+                  </h3>
+                  <span
+                    class="bg-emerald-500/10 text-emerald-600 text-[10px] px-2 py-0.5 rounded-full font-bold"
+                    >3 Live</span
+                  >
+                </div>
+                <div class="divide-y divide-slate-50 dark:divide-slate-800">
+                  <div class="p-4 flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-900/10 flex items-center justify-center text-teal-600"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >verified_user</span
+                        >
+                      </div>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Dr. Sarah Miller
+                        </p>
+                        <p class="text-[10px] text-slate-400">
+                          Expires in 2 hours
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      class="text-[11px] font-bold text-red-500 hover:bg-red-50 px-2 py-1 rounded-md transition-colors"
+                    >
+                      Revoke
+                    </button>
+                  </div>
+                  <div class="p-4 flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center text-primary"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >emergency</span
+                        >
+                      </div>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Emergency Card
+                        </p>
+                        <p class="text-[10px] text-slate-400">Never expires</p>
+                      </div>
+                    </div>
+                    <button
+                      class="text-[11px] font-bold text-red-500 hover:bg-red-50 px-2 py-1 rounded-md transition-colors"
+                    >
+                      Revoke
+                    </button>
+                  </div>
+                  <div class="p-4 flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >group</span
+                        >
+                      </div>
+                      <div>
+                        <p
+                          class="text-sm font-bold text-slate-900 dark:text-white"
+                        >
+                          Public Summary
+                        </p>
+                        <p class="text-[10px] text-slate-400">
+                          Expires in 5 days
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      class="text-[11px] font-bold text-red-500 hover:bg-red-50 px-2 py-1 rounded-md transition-colors"
+                    >
+                      Revoke
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-span-12 lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-10 flex flex-col items-center justify-center relative"
+            >
+              <div class="absolute top-6 left-6">
+                <span
+                  class="bg-teal-500/10 text-teal-600 text-[10px] px-3 py-1 rounded-full font-black uppercase tracking-wider"
+                  >Secure QR Active</span
+                >
+              </div>
+              <div
+                class="mb-8 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700"
+              >
+                <div
+                  class="w-64 h-64 bg-white p-4 rounded-2xl shadow-sm flex items-center justify-center relative overflow-hidden group"
+                >
+                  <div
+                    class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary text-4xl"
+                      >lock_open</span
+                    >
+                  </div>
+                  <svg
+                    class="w-full h-full text-slate-900"
+                    fill="currentColor"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      d="M10 10h30v30h-30zM15 15v20h20v-20h-20zM22 22h6v6h-6zM60 10h30v30h-30zM65 15v20h20v-20h-20zM72 22h6v6h-6zM10 60h30v30h-30zM15 65v20h20v-20h-20zM22 72h6v6h-6zM60 60h10v10h-10zM80 60h10v10h-10zM60 80h10v10h-10zM80 80h10v10h-10zM70 70h10v10h-10zM50 20h5v5h-5zM50 40h5v5h-5zM40 50h5v5h-5zM20 50h5v5h-5zM60 50h5v5h-5zM80 50h5v5h-5zM50 70h5v5h-5zM70 50h5v5h-5zM50 60h5v5h-5zM50 80h5v5h-5z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-center mb-10">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Annual Health Summary
+                </h4>
+                <p
+                  class="text-slate-500 dark:text-slate-400 text-sm mt-2 max-w-xs"
+                >
+                  Scan to view authorized medical reports and vital trends
+                  securely.
+                </p>
+              </div>
+              <div class="flex items-center gap-4 w-full max-w-sm">
+                <button
+                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold shadow-soft hover:bg-slate-50 transition-all"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >download</span
+                  >
+                  Download
+                </button>
+                <button
+                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold shadow-soft hover:bg-slate-50 transition-all"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >print</span
+                  >
+                  Print
+                </button>
+              </div>
+            </div>
+            <div
+              class="col-span-12 lg:col-span-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft overflow-hidden flex flex-col"
+            >
+              <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                <h3 class="font-bold text-slate-900 dark:text-white">
+                  Access Audit Log
+                </h3>
+                <p class="text-xs text-slate-500 mt-1">
+                  Recent data access history
+                </p>
+              </div>
+              <div class="flex-1">
+                <div class="divide-y divide-slate-50 dark:divide-slate-800">
+                  <div
+                    class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div class="flex items-center gap-3 mb-1">
+                      <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <p
+                        class="text-sm font-bold text-slate-900 dark:text-white"
+                      >
+                        Access Granted
+                      </p>
+                    </div>
+                    <p
+                      class="text-[11px] text-slate-600 dark:text-slate-400 ml-5"
+                    >
+                      Dr. Miller viewed
+                      <span class="font-medium text-primary">Blood Panel</span>
+                    </p>
+                    <p class="text-[10px] text-slate-400 ml-5 mt-1">
+                      20 mins ago • IP: 192.168.1.1
+                    </p>
+                  </div>
+                  <div
+                    class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div class="flex items-center gap-3 mb-1">
+                      <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <p
+                        class="text-sm font-bold text-slate-900 dark:text-white"
+                      >
+                        Access Granted
+                      </p>
+                    </div>
+                    <p
+                      class="text-[11px] text-slate-600 dark:text-slate-400 ml-5"
+                    >
+                      Hospital Portal scanned
+                      <span class="font-medium text-primary"
+                        >Emergency Card</span
+                      >
+                    </p>
+                    <p class="text-[10px] text-slate-400 ml-5 mt-1">
+                      2 hours ago • Seattle, WA
+                    </p>
+                  </div>
+                  <div
+                    class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div class="flex items-center gap-3 mb-1">
+                      <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                      <p
+                        class="text-sm font-bold text-slate-900 dark:text-white"
+                      >
+                        Access Revoked
+                      </p>
+                    </div>
+                    <p
+                      class="text-[11px] text-slate-600 dark:text-slate-400 ml-5"
+                    >
+                      Manual revocation for
+                      <span class="font-medium text-primary">Lab Results</span>
+                    </p>
+                    <p class="text-[10px] text-slate-400 ml-5 mt-1">
+                      5 hours ago
+                    </p>
+                  </div>
+                  <div
+                    class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div class="flex items-center gap-3 mb-1">
+                      <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+                      <p
+                        class="text-sm font-bold text-slate-900 dark:text-white"
+                      >
+                        Invalid Attempt
+                      </p>
+                    </div>
+                    <p
+                      class="text-[11px] text-slate-600 dark:text-slate-400 ml-5"
+                    >
+                      Expired QR code scanned
+                    </p>
+                    <p class="text-[10px] text-slate-400 ml-5 mt-1">
+                      Yesterday • Unknown IP
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-full py-4 text-xs font-bold text-primary hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors border-t border-slate-100 dark:border-slate-800"
+              >
+                Download Full Audit Log
+              </button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="flex items-start gap-4 p-5 bg-teal-50 dark:bg-teal-900/10 rounded-2xl"
+            >
+              <span class="material-symbols-outlined text-teal-600"
+                >shield_lock</span
+              >
+              <div>
+                <h5 class="text-sm font-bold text-teal-900 dark:text-teal-400">
+                  End-to-End Encryption
+                </h5>
+                <p
+                  class="text-[11px] text-teal-700/70 dark:text-teal-400/60 mt-0.5"
+                >
+                  Your data is encrypted locally before being shared. Even we
+                  can't see it.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-2xl"
+            >
+              <span class="material-symbols-outlined text-primary"
+                >history</span
+              >
+              <div>
+                <h5 class="text-sm font-bold text-blue-900 dark:text-blue-400">
+                  Automatic Expiry
+                </h5>
+                <p
+                  class="text-[11px] text-blue-700/70 dark:text-blue-400/60 mt-0.5"
+                >
+                  Set custom expiration times for every QR code you generate.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 p-5 bg-purple-50 dark:bg-purple-900/10 rounded-2xl"
+            >
+              <span class="material-symbols-outlined text-purple-600"
+                >visibility_off</span
+              >
+              <div>
+                <h5
+                  class="text-sm font-bold text-purple-900 dark:text-purple-400"
+                >
+                  Data Masking
+                </h5>
+                <p
+                  class="text-[11px] text-purple-700/70 dark:text-purple-400/60 mt-0.5"
+                >
+                  Toggle personal details on/off depending on who you're sharing
+                  with.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="h-10"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

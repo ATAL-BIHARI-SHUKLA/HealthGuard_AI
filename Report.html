@@ -1,0 +1,725 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HealthGuard AI - Medical Reports</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        ::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #e2e8f0;
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #cbd5e1;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/20 selection:text-primary h-screen flex flex-col overflow-hidden"
+  >
+    <nav
+      class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-50 shrink-0"
+    >
+      <div class="flex items-center gap-3">
+        <a href="/index.html"
+          ><div
+            class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+          >
+            <div style="width: 65px">
+              <img src="/Logo.png" alt="logo" />
+            </div>
+            <h2 class="text-xl font-bold leading-tight tracking-tight">
+              HealthGuard AI
+            </h2>
+          </div></a
+        >
+      </div>
+      <div class="hidden lg:flex items-center gap-8">
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="/index.html"
+          >Home</a
+        >
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="#"
+          >Features</a
+        >
+        <a
+          class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+          href="/How work.html"
+          >How It Works</a
+        >
+        <a
+          class="text-sm font-semibold text-primary border-b-2 border-primary py-5"
+          href="/Dashboard.html"
+          >Dashboard</a
+        >
+      </div>
+      <div class="flex items-center gap-3 md:gap-5">
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+        >
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <button
+          class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+        >
+          <span class="material-symbols-outlined text-[22px]"
+            >notifications</span
+          >
+          <span
+            class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"
+          ></span>
+        </button>
+        <a href="/Generate QR.html"
+          ><button
+            class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-soft hover:bg-blue-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span class="material-symbols-outlined text-[18px]">qr_code</span>
+            <span>Generate QR</span>
+          </button></a
+        >
+        <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+        <div
+          class="w-9 h-9 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-700 cursor-pointer"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC0W2EzJtxaGPUJf3jpzF0XRr15sUceCccpG0L2F8yTYBf_eTfqw60N4nAIFlaOYnhEkAtkbh-0EFXVIA2JNQKh5mI3k92wG-F16Z8GhEEee0rtj0WPI_ARODec9e0-VHLJAxiaJ-YiWSw6BzWc6YoMo75-znRzHAYFQS_tdgE868C7vp3iRIQSHMMaqLH6FQKcq3uieFdwhk5dZt3v7OLbTmlfPlgf7QJBbLCo1q0N9ioVXqbgB71pZtbChTaOQ-fQpCPRzuCVFt9L&quot;);
+          "
+        ></div>
+      </div>
+    </nav>
+    <div class="flex flex-1 overflow-hidden">
+      <aside
+        class="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0"
+      >
+        <div class="flex flex-col h-full p-6 justify-between">
+          <nav class="flex flex-col gap-2">
+            <p
+              class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 px-3"
+            >
+              Main Menu
+            </p>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/Dashboard.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >grid_view</span
+              >
+              <span class="text-sm font-medium">Overview</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/5 text-primary font-bold group transition-all"
+              href="/Report.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >description</span
+              >
+              <span class="text-sm">Reports</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/Analysis.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >analytics</span
+              >
+              <span class="text-sm font-medium">Analysis</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="/QR Sharing.html"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >share_reviews</span
+              >
+              <span class="text-sm font-medium">Sharing</span>
+            </a>
+            <p
+              class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-6 mb-2 px-3"
+            >
+              Account
+            </p>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >settings</span
+              >
+              <span class="text-sm font-medium">Settings</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[22px]">help</span>
+              <span class="text-sm font-medium">Support</span>
+            </a>
+          </nav>
+          <div
+            class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-800"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-primary text-[20px]"
+                >verified</span
+              >
+              <span
+                class="text-xs font-bold text-slate-900 dark:text-white tracking-tight"
+                >Premium Plan</span
+              >
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">
+              You have 12.4GB of 50GB storage left.
+            </p>
+            <button
+              class="w-full py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 transition-colors"
+            >
+              Upgrade
+            </button>
+          </div>
+        </div>
+      </aside>
+      <main
+        class="flex-1 flex flex-col h-full overflow-y-auto bg-slate-50/50 dark:bg-background-dark/50"
+      >
+        <div class="max-w-7xl mx-auto w-full p-6 md:p-10 space-y-8">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+          >
+            <div>
+              <h2
+                class="text-3xl font-black text-slate-900 dark:text-white tracking-tight"
+              >
+                Medical Reports
+              </h2>
+              <p class="text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                Manage and analyze your health records with AI.
+              </p>
+            </div>
+            <a href="/Dashboard.html"
+              ><div class="flex items-center gap-3">
+                <button
+                  class="flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >upload_file</span
+                  >
+                  Upload New Report
+                </button>
+              </div></a
+            >
+          </div>
+          <div
+            class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+              <div class="md:col-span-5 relative">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  >search</span
+                >
+                <input
+                  class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary transition-all"
+                  placeholder="Search reports by name or keyword..."
+                  type="text"
+                />
+              </div>
+              <div class="md:col-span-2">
+                <select
+                  class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary transition-all text-slate-600 dark:text-slate-300"
+                >
+                  <option>Category</option>
+                  <option>Blood Work</option>
+                  <option>Imaging</option>
+                  <option>Cardiology</option>
+                  <option>General</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <select
+                  class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary transition-all text-slate-600 dark:text-slate-300"
+                >
+                  <option>Date Range</option>
+                  <option>Last 30 days</option>
+                  <option>Last 6 months</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <select
+                  class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary transition-all text-slate-600 dark:text-slate-300"
+                >
+                  <option>Priority</option>
+                  <option>High</option>
+                  <option>Normal</option>
+                  <option>Low</option>
+                </select>
+              </div>
+              <div class="md:col-span-1 flex justify-end">
+                <button
+                  class="p-2 text-slate-400 hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined">filter_list</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft overflow-hidden"
+          >
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800"
+                  >
+                    <th
+                      class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest"
+                    >
+                      Report Name
+                    </th>
+                    <th
+                      class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest"
+                    >
+                      Date
+                    </th>
+                    <th
+                      class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest"
+                    >
+                      Category
+                    </th>
+                    <th
+                      class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest"
+                    >
+                      AI Summary Status
+                    </th>
+                    <th
+                      class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest text-right"
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
+                  <tr
+                    class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group"
+                  >
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 bg-red-50 dark:bg-red-900/10 rounded-xl flex items-center justify-center text-red-500"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >description</span
+                          >
+                        </div>
+                        <div>
+                          <p
+                            class="text-sm font-bold text-slate-900 dark:text-white"
+                          >
+                            Annual Physical Exam
+                          </p>
+                          <p class="text-[11px] text-slate-400 font-medium">
+                            PDF • 2.4 MB
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-5">
+                      <p
+                        class="text-sm text-slate-600 dark:text-slate-400 font-medium"
+                      >
+                        Jun 12, 2024
+                      </p>
+                    </td>
+                    <td class="px-6 py-5">
+                      <span
+                        class="px-2.5 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[11px] font-bold rounded-full uppercase tracking-wider"
+                        >Blood Work</span
+                      >
+                    </td>
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-2">
+                        <span
+                          class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"
+                        ></span>
+                        <span
+                          class="text-sm text-emerald-600 dark:text-emerald-400 font-bold"
+                          >Ready</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-5 text-right">
+                      <div
+                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="View"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >visibility</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Download"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >download</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Share"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >share</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group"
+                  >
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 bg-blue-50 dark:bg-blue-900/10 rounded-xl flex items-center justify-center text-blue-500"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >biotech</span
+                          >
+                        </div>
+                        <div>
+                          <p
+                            class="text-sm font-bold text-slate-900 dark:text-white"
+                          >
+                            Lipid Panel Results
+                          </p>
+                          <p class="text-[11px] text-slate-400 font-medium">
+                            PDF • 1.1 MB
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-5">
+                      <p
+                        class="text-sm text-slate-600 dark:text-slate-400 font-medium"
+                      >
+                        May 28, 2024
+                      </p>
+                    </td>
+                    <td class="px-6 py-5">
+                      <span
+                        class="px-2.5 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 text-[11px] font-bold rounded-full uppercase tracking-wider"
+                        >Imaging</span
+                      >
+                    </td>
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin"
+                        ></div>
+                        <span class="text-sm text-primary font-bold"
+                          >Processing</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-5 text-right">
+                      <div
+                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="View"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >visibility</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Download"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >download</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Share"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >share</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group"
+                  >
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/10 rounded-xl flex items-center justify-center text-emerald-500"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >ecg</span
+                          >
+                        </div>
+                        <div>
+                          <p
+                            class="text-sm font-bold text-slate-900 dark:text-white"
+                          >
+                            Cardiology Screening
+                          </p>
+                          <p class="text-[11px] text-slate-400 font-medium">
+                            JPG • 4.5 MB
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-5">
+                      <p
+                        class="text-sm text-slate-600 dark:text-slate-400 font-medium"
+                      >
+                        May 15, 2024
+                      </p>
+                    </td>
+                    <td class="px-6 py-5">
+                      <span
+                        class="px-2.5 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold rounded-full uppercase tracking-wider"
+                        >Cardiology</span
+                      >
+                    </td>
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-2">
+                        <span
+                          class="w-2 h-2 bg-emerald-500 rounded-full"
+                        ></span>
+                        <span
+                          class="text-sm text-emerald-600 dark:text-emerald-400 font-bold"
+                          >Ready</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-5 text-right">
+                      <div
+                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="View"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >visibility</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Download"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >download</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Share"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >share</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors group"
+                  >
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 bg-orange-50 dark:bg-orange-900/10 rounded-xl flex items-center justify-center text-orange-500"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >radiology</span
+                          >
+                        </div>
+                        <div>
+                          <p
+                            class="text-sm font-bold text-slate-900 dark:text-white"
+                          >
+                            Chest X-Ray Result
+                          </p>
+                          <p class="text-[11px] text-slate-400 font-medium">
+                            DICOM • 18.2 MB
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-5">
+                      <p
+                        class="text-sm text-slate-600 dark:text-slate-400 font-medium"
+                      >
+                        Apr 22, 2024
+                      </p>
+                    </td>
+                    <td class="px-6 py-5">
+                      <span
+                        class="px-2.5 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[11px] font-bold rounded-full uppercase tracking-wider"
+                        >Imaging</span
+                      >
+                    </td>
+                    <td class="px-6 py-5">
+                      <div class="flex items-center gap-2">
+                        <span
+                          class="w-2 h-2 bg-emerald-500 rounded-full"
+                        ></span>
+                        <span
+                          class="text-sm text-emerald-600 dark:text-emerald-400 font-bold"
+                          >Ready</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-5 text-right">
+                      <div
+                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="View"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >visibility</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Download"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >download</span
+                          >
+                        </button>
+                        <button
+                          class="p-2 text-slate-400 hover:text-primary transition-colors"
+                          title="Share"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >share</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="px-6 py-4 bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between"
+            >
+              <p
+                class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+              >
+                Showing 4 of 24 reports
+              </p>
+              <div class="flex items-center gap-2">
+                <button
+                  class="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 hover:bg-white dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >chevron_left</span
+                  >
+                </button>
+                <button
+                  class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-xs font-bold"
+                >
+                  1
+                </button>
+                <button
+                  class="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-white dark:hover:bg-slate-700 transition-colors"
+                >
+                  2
+                </button>
+                <button
+                  class="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-white dark:hover:bg-slate-700 transition-colors"
+                >
+                  3
+                </button>
+                <button
+                  class="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 hover:bg-white dark:hover:bg-slate-700 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >chevron_right</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center gap-2 p-4 bg-primary/5 rounded-2xl border border-primary/10"
+          >
+            <span class="material-symbols-outlined text-primary">info</span>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              All reports are automatically scanned by HealthGuard AI for
+              potential risks and health optimizations.
+            </p>
+          </div>
+          <div class="h-10"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

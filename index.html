@@ -82,19 +82,19 @@
             >
             <a
               class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
-              href="/Dashboard.html"
-              >Dashboard</a
-            >
-            <a
-              class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
               href="/How work.html"
               >How it Works</a
             >
             <a
               class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
-              href="#security"
-              >Security</a
+              href="/Dashboard.html"
+              >Dashboard</a
             >
+            <!-- <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors dark:text-slate-300"
+              href="#"
+              >About Us</a
+            > -->
           </div>
           <div class="flex items-center gap-4">
             <a href="/Login page.html"
@@ -681,23 +681,27 @@
           <div
             class="flex flex-col md:flex-row justify-between items-start gap-4 lg:gap-0"
           >
-            <div
-              class="flex flex-col items-center text-center flex-1 w-full group"
-            >
-              <div
-                class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
+            <a href="/Dashboard.html"
+              ><div
+                class="flex flex-col items-center text-center flex-1 w-full group"
               >
-                <span class="material-symbols-outlined text-4xl"
-                  >cloud_upload</span
+                <div
+                  class="size-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1"
                 >
-              </div>
-              <h3 class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white">
-                1. Upload
-              </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
-                Securely upload photos or PDFs of reports.
-              </p>
-            </div>
+                  <span class="material-symbols-outlined text-4xl"
+                    >cloud_upload</span
+                  >
+                </div>
+                <h3
+                  class="font-bold text-lg mb-2 text-[#0d131b] dark:text-white"
+                >
+                  1. Upload
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 px-2">
+                  Securely upload photos or PDFs of reports.
+                </p>
+              </div></a
+            >
             <div
               class="hidden md:flex h-20 items-center justify-center text-slate-300 w-8 shrink-0"
             >
@@ -1027,40 +1031,74 @@
         </div>
       </div>
     </div>
-    <footer
-      class="w-full bg-background-off dark:bg-background-dark py-12 border-t border-slate-200 dark:border-slate-800"
-    >
-      <div class="px-4 md:px-10 lg:px-40 flex justify-center">
-        <div
-          class="max-w-[1280px] w-full flex flex-col md:flex-row justify-between items-center gap-6"
-        >
-          <a href="/index.html"
-            ><div
-              class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+    <!-- Footer -->
+    <footer class="bg-background-light border-t border-[#e7ecf3] pt-16 pb-8">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+          <div class="col-span-1 md:col-span-1">
+            <a href="/index.html"
+              ><div
+                class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+              >
+                <div style="width: 65px">
+                  <img src="/Logo.png" alt="logo" />
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-tight">
+                  HealthGuard AI
+                </h2>
+              </div></a
             >
-              <div style="width: 65px">
-                <img src="/Logo.png" alt="logo" />
-              </div>
-              <h2 class="text-xl font-bold leading-tight tracking-tight">
-                HealthGuard AI
-              </h2>
-            </div></a
-          >
-          <div
-            class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400"
-          >
-            <a class="hover:text-primary transition-colors" href="#"
-              >Privacy Policy</a
-            >
-            <a class="hover:text-primary transition-colors" href="#"
-              >Terms of Service</a
-            >
-            <a class="hover:text-primary transition-colors" href="#"
-              >Medical Disclaimer</a
-            >
+            <p class="text-[#4c6c9a] text-sm leading-relaxed">
+              Empowering patients with intelligent insights from their medical
+              data.
+            </p>
           </div>
-          <div class="text-sm text-slate-500">
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Product</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">Features</a></li>
+              <li><a class="hover:text-primary" href="#">Security</a></li>
+              <li><a class="hover:text-primary" href="#">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Company</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">About Us</a></li>
+              <li><a class="hover:text-primary" href="#">Careers</a></li>
+              <li><a class="hover:text-primary" href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#0d131b] mb-4">Legal</h4>
+            <ul class="space-y-2 text-sm text-[#4c6c9a]">
+              <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+              <li>
+                <a class="hover:text-primary" href="#">Terms of Service</a>
+              </li>
+              <li><a class="hover:text-primary" href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#e7ecf3] gap-4"
+        >
+          <p class="text-[#4c6c9a] text-sm">
             © 2026 HealthGuard AI. All rights reserved.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">flutter_dash</span></a
+            >
+            <!-- Using flutter_dash as a generic bird/twitter icon equivalent -->
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">work</span></a
+            >
+            <!-- Using work as linkedin equivalent -->
+            <a class="text-[#4c6c9a] hover:text-primary" href="#"
+              ><span class="material-symbols-outlined">public</span></a
+            >
+            <!-- Using public as fb equivalent -->
           </div>
         </div>
       </div>

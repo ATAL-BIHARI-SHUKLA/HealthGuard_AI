@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthGuard AI - Health Analysis Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            ::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+            }
+            ::-webkit-scrollbar-track {
+                background: transparent; 
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #e2e8f0; 
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #cbd5e1; 
+            }
+        }
+        .nav-link-active {
+            @apply text-primary font-semibold border-b-2 border-primary;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/20 selection:text-primary h-screen flex flex-col overflow-hidden">
+<nav class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-50 shrink-0">
+<div class="flex items-center gap-3">
+<a href="/index.html"
+            ><div
+              class="flex items-center gap-3 text-[#0d131b] dark:text-white group cursor-pointer"
+            >
+              <div style="width: 65px">
+                <img src="/Logo.png" alt="logo" />
+              </div>
+              <h2 class="text-xl font-bold leading-tight tracking-tight">
+                HealthGuard AI
+              </h2>
+            </div></a
+          >
+</div>
+<div class="hidden lg:flex items-center gap-8 h-full">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors h-full flex items-center" href="/index.html">Home</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors h-full flex items-center" href="#">Features</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors h-full flex items-center" href="/How work.html">How It Works</a>
+<a class="text-sm font-semibold text-primary border-b-2 border-primary h-full flex items-center" href="/Dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center gap-3 md:gap-5">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<a href="/Generate QR.html"><button class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-soft hover:bg-blue-600 transition-all hover:scale-[1.02] active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">qr_code</span>
+<span>Generate QR</span>
+</button></a>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+<div class="w-9 h-9 rounded-full bg-cover bg-center border border-slate-200 dark:border-slate-700 cursor-pointer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0W2EzJtxaGPUJf3jpzF0XRr15sUceCccpG0L2F8yTYBf_eTfqw60N4nAIFlaOYnhEkAtkbh-0EFXVIA2JNQKh5mI3k92wG-F16Z8GhEEee0rtj0WPI_ARODec9e0-VHLJAxiaJ-YiWSw6BzWc6YoMo75-znRzHAYFQS_tdgE868C7vp3iRIQSHMMaqLH6FQKcq3uieFdwhk5dZt3v7OLbTmlfPlgf7QJBbLCo1q0N9ioVXqbgB71pZtbChTaOQ-fQpCPRzuCVFt9L");'></div>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<aside class="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+<div class="flex flex-col h-full p-6 justify-between">
+<nav class="flex flex-col gap-2">
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 px-3">Main Menu</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 transition-all group" href="/Dashboard.html">
+<span class="material-symbols-outlined text-[22px]">grid_view</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="/Report.html">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/5 text-primary font-bold group transition-all" href="/Analysis.html">
+<span class="material-symbols-outlined text-[22px]">analytics</span>
+<span class="text-sm">Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="/Generate QR.html">
+<span class="material-symbols-outlined text-[22px]">share_reviews</span>
+<span class="text-sm font-medium">Sharing</span>
+</a>
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-6 mb-2 px-3">Account</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-4 border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">smart_toy</span>
+<span class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-tight">AI Status</span>
+</div>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Model v4.2 is processing your latest vitals. Accuracy: 99.4%.</p>
+<div class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-full overflow-y-auto">
+<div class="max-w-7xl mx-auto w-full p-6 md:p-8 space-y-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Health Analysis</h2>
+<p class="text-slate-500 dark:text-slate-400 font-medium mt-1">Advanced AI-driven insights for Alex Rivera</p>
+</div>
+<div class="flex items-center gap-2 bg-white dark:bg-slate-900 p-1 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<button class="px-4 py-1.5 text-xs font-bold bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-900 dark:text-white">Live Data</button>
+<button class="px-4 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">History</button>
+<button class="px-4 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">Export</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Vitals Trend Explorer</h3>
+<p class="text-sm text-slate-500">Multi-metric correlation analysis</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex bg-slate-50 dark:bg-slate-800 rounded-lg p-1 border border-slate-100 dark:border-slate-700">
+<button class="px-3 py-1 text-[10px] font-bold uppercase text-slate-400 hover:text-primary transition-colors">1M</button>
+<button class="px-3 py-1 text-[10px] font-bold uppercase bg-white dark:bg-slate-700 rounded shadow-sm text-primary">6M</button>
+<button class="px-3 py-1 text-[10px] font-bold uppercase text-slate-400 hover:text-primary transition-colors">1Y</button>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<button class="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>Metrics</span>
+</button>
+</div>
+</div>
+<div class="h-72 relative">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+</div>
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 240">
+<path d="M0 180 Q 150 200, 300 120 T 600 100 T 800 40" fill="none" stroke="#ef4444" stroke-dasharray="0" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 140 Q 200 130, 400 160 T 800 110" fill="none" stroke="#f59e0b" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 100 Q 200 80, 400 90 T 800 60" fill="none" stroke="#137fec" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="fill-white stroke-primary stroke-2" cx="800" cy="60" r="4"></circle>
+<circle class="fill-white stroke-orange-500 stroke-2" cx="800" cy="110" r="4"></circle>
+<circle class="fill-white stroke-red-500 stroke-2" cx="800" cy="40" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-6 px-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Jan</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Feb</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Mar</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Apr</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">May</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Jun</span>
+</div>
+<div class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">Blood Pressure</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500"></span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">Heart Rate</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-orange-500"></span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">Glucose</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-6 flex flex-col">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">AI Health Score</h3>
+<div class="flex-1 flex flex-col items-center justify-center py-4">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+<circle class="text-slate-100 dark:text-slate-800" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="264" stroke-dashoffset="47" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="text-center">
+<span class="text-5xl font-black text-slate-900 dark:text-white">82</span>
+<p class="text-xs font-bold text-slate-400 uppercase mt-1">out of 100</p>
+</div>
+</div>
+<p class="text-emerald-500 text-sm font-bold mt-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+                            +4 points since last month
+                        </p>
+</div>
+<div class="space-y-4 mt-6">
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-500">Physical Activity</span>
+<span class="text-slate-900 dark:text-white">92%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[92%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-500">Metabolic Health</span>
+<span class="text-slate-900 dark:text-white">76%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[76%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-slate-500">Sleep &amp; Recovery</span>
+<span class="text-slate-900 dark:text-white">64%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-[64%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Predictive Risks</h3>
+<span class="px-2 py-1 bg-teal-50 dark:bg-teal-900/20 text-teal-600 text-[10px] font-black uppercase rounded">AI Prediction</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 shrink-0 relative flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-180" viewBox="0 0 40 40">
+<circle class="text-slate-100 dark:text-slate-800" cx="20" cy="20" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="50 100" stroke-width="4"></circle>
+<circle class="text-emerald-500" cx="20" cy="20" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="15 100" stroke-width="4"></circle>
+</svg>
+<span class="text-[10px] font-bold text-slate-900 dark:text-white">LOW</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Cardiovascular Risk</h4>
+<span class="text-xs font-medium text-emerald-500">12.4% Probability</span>
+</div>
+<p class="text-xs text-slate-500">Based on your lipid panel and blood pressure trends.</p>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 shrink-0 relative flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-180" viewBox="0 0 40 40">
+<circle class="text-slate-100 dark:text-slate-800" cx="20" cy="20" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="50 100" stroke-width="4"></circle>
+<circle class="text-orange-500" cx="20" cy="20" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="35 100" stroke-width="4"></circle>
+</svg>
+<span class="text-[10px] font-bold text-slate-900 dark:text-white">MOD</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Metabolic Strain</h4>
+<span class="text-xs font-medium text-orange-500">42.1% Probability</span>
+</div>
+<p class="text-xs text-slate-500">Slightly elevated glucose levels over the last 3 months.</p>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 flex gap-3">
+<span class="material-symbols-outlined text-primary text-xl">info</span>
+<p class="text-[11px] text-slate-600 dark:text-slate-400">Predictions are based on statistical modeling. Consult a medical professional for clinical diagnosis.</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Medical Benchmarks</h3>
+<button class="text-xs font-bold text-primary hover:underline">Customize Ranges</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Metric</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center">Your Value</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center">Healthy Range</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-red-50 text-red-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-white">Resting HR</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-bold">72 <span class="text-[10px] font-medium text-slate-400">bpm</span></span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm text-slate-500">60 - 100</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 text-[10px] font-black uppercase rounded-full">Normal</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">bloodtype</span>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-white">Fasting Glucose</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-bold">104 <span class="text-[10px] font-medium text-slate-400">mg/dL</span></span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm text-slate-500">70 - 99</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-600 text-[10px] font-black uppercase rounded-full">Out of Range</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-white">LDL Cholesterol</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-bold">115 <span class="text-[10px] font-medium text-slate-400">mg/dL</span></span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm text-slate-500">&lt; 130</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 text-[10px] font-black uppercase rounded-full">Normal</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="h-10"></div>
+</div>
+</main>
+</div>
+
+</body></html>
