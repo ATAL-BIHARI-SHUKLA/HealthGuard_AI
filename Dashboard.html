@@ -40,6 +40,35 @@
         },
       };
     </script>
+    <script>
+      function handleFileUpload(input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
+
+        if (!allowedTypes.includes(file.type)) {
+          alert("Only PDF, JPG, and PNG files are allowed.");
+          input.value = "";
+          return;
+        }
+
+        if (file.size > maxSize) {
+          alert("File size must be less than 5MB.");
+          input.value = "";
+          return;
+        }
+
+        // Show file name
+        document.getElementById("fileName").innerText =
+          "Selected file: " + file.name;
+
+        // 🔥 Ready for backend upload here
+        console.log("File ready:", file);
+      }
+    </script>
+
     <style type="text/tailwindcss">
       @layer base {
         ::-webkit-scrollbar {
@@ -274,24 +303,46 @@
               <div
                 class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
               >
-                <span class="material-symbols-outlined text-primary text-3xl"
-                  >add_a_photo</span
-                >
+                <span class="material-symbols-outlined text-primary text-3xl">
+                  add_a_photo
+                </span>
               </div>
+
               <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 Upload Medical Report
               </h3>
+
               <p
                 class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 px-4"
               >
                 AI will instantly scan and explain your results in simple terms.
               </p>
+
+              <!-- Hidden File Input -->
+              <input
+                id="medicalFile"
+                type="file"
+                class="hidden"
+                accept=".pdf,.jpg,.jpeg,.png"
+                onchange="handleFileUpload(this)"
+              />
+
+              <!-- Upload Button -->
               <button
+                type="button"
+                onclick="document.getElementById('medicalFile').click()"
                 class="px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-colors"
               >
                 Select Files
               </button>
+
+              <!-- Selected File Name -->
+              <p
+                id="fileName"
+                class="text-xs text-slate-500 dark:text-slate-400 mt-3 truncate max-w-full"
+              ></p>
             </div>
+
             <div
               class="col-span-12 lg:col-span-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-soft p-8 relative overflow-hidden"
             >

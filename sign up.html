@@ -144,6 +144,9 @@
                   class="form-input flex w-full rounded-xl text-[#0d131b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-[#94a3b8] text-base"
                   placeholder="Dr. Sarah Johnson"
                   type="text"
+                  maxlength="40"
+                  required
+                  oninput="this.value = this.value.replace(/[^a-zA-Z.\s]/g, '')"
                 />
               </div>
             </div>
@@ -159,9 +162,15 @@
                   >mail</span
                 >
                 <input
-                  class="form-input flex w-full rounded-xl text-[#0d131b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-[#94a3b8] text-base"
-                  placeholder="sarah@hospital.com"
+                  id="email"
                   type="email"
+                  required
+                  maxlength="40"
+                  placeholder="sarah@hospital.com"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  title="Please enter a valid email address (example: name@example.com)"
+                  oninput="this.value = this.value.replace(/\s/g, '')"
+                  class="form-input flex w-full rounded-xl text-[#0d131b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-[#94a3b8] text-base"
                 />
               </div>
             </div>
@@ -179,6 +188,9 @@
                   >
                   <input
                     class="form-input flex w-full rounded-xl text-[#0d131b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-[#94a3b8] text-base"
+                    minlength="8"
+                    maxlength="20"
+                    required
                     placeholder="••••••••"
                     type="password"
                   />
@@ -196,6 +208,9 @@
                   >
                   <input
                     class="form-input flex w-full rounded-xl text-[#0d131b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd9e7] dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-[#94a3b8] text-base"
+                    minlength="8"
+                    maxlength="20"
+                    required
                     placeholder="••••••••"
                     type="password"
                   />
